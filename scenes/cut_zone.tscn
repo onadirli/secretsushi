@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bemkpw06pted"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mf6o"]
+size = Vector2(50, 538)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilw45"]
+size = Vector2(16, 536)
+
+[node name="CutZone" type="Node2D"]
+
+[node name="Zone" type="Area2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Zone"]
+position = Vector2(32, 0)
+color = Color(1, 1, 0.443137, 0.505882)
+polygon = PackedVector2Array(408, 136, 456, 136, 456, 672, 408, 672)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone"]
+position = Vector2(463, 403)
+shape = SubResource("RectangleShape2D_7mf6o")
+
+[node name="ZonePerfect" type="Area2D" parent="."]
+position = Vector2(-72, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="ZonePerfect"]
+position = Vector2(16, 0)
+color = Color(1, 0.4, 0, 1)
+polygon = PackedVector2Array(512, 136, 528, 136, 528, 672, 512, 672)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonePerfect"]
+position = Vector2(536, 403)
+shape = SubResource("RectangleShape2D_ilw45")
