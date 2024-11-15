@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7ydnsdxhos6f"]
+
+[ext_resource type="Texture2D" uid="uid://dtilho878c7mw" path="res://assets/img/placeholders/counter_skewed.png" id="1_rko4j"]
+[ext_resource type="Texture2D" uid="uid://b0tthd1a43rxi" path="res://assets/img/placeholders/customer.png" id="2_xye3x"]
+
+[sub_resource type="Curve2D" id="Curve2D_8yryn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -22, 529, -39.55, -2.20665, 39.55, 2.20665, 49, 486, 0, 0, 0, 0, 130, 529, -42.0961, -1.69742, 42.0961, 1.69742, 196, 486, 0, 0, 0, 0, 260, 529, -60.8762, -1.1651, 60.8762, 1.1651, 344, 483, 0, 0, 0, 0, 416, 531, -45.73, -1.01946, 45.73, 1.01946, 494, 481, 0, 0, 0, 0, 568, 532, -51.1185, -1.60201, 51.1185, 1.60201, 644, 481, 0, 0, 0, 0, 721, 533, -56.3615, -0.145637, 56.3615, 0.145637, 812, 480, 0, 0, 0, 0, 885, 534, -56.5071, -0.582548, 56.5071, 0.582548, 973, 474, 0, 0, 0, 0, 1059, 534, -65.0997, -3.05837, 65.0997, 3.05837, 1156, 472, 0, 0, 0, 0, 1250, 537, -77.1876, -1.60201, 77.1876, 1.60201, 1383, 469, 0, 0, 0, 0, 1490, 540, -86.5083, -0.873821, 86.5083, 0.873821, 1617, 467, 0, 0, 0, 0, 1731, 540, -68.8862, -5.09729, 68.8862, 5.09729, 1854, 466, 0, 0, 0, 0, 1954, 542, -72.9641, -1.89328, 72.9641, 1.89328, 2106, 459, 0, 0, 0, 0, 2219, 546, -65.0997, 0, 65.0997, 0, 2357, 454, 0, 0, 0, 0, 2496, 546)
+}
+point_count = 27
+
+[node name="CustomerQueue" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="CounterSkewed" type="Sprite2D" parent="."]
+position = Vector2(939, 743)
+texture = ExtResource("1_rko4j")
+region_rect = Rect2(0, 0, 2360, 1314.43)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-137, 2)
+curve = SubResource("Curve2D_8yryn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1091.82, 494.026)
+rotation = -0.681912
+progress = 1400.0
+
+[node name="Customer" type="Sprite2D" parent="."]
+position = Vector2(3618, 854)
+scale = Vector2(0.304237, 0.305976)
+texture = ExtResource("2_xye3x")
