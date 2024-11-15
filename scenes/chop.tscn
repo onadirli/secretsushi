@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://mauc2fcmcli4"]
+
+[ext_resource type="Texture2D" uid="uid://cltbfusr2xb4o" path="res://assets/img/placeholders/fish.png" id="1_mi4le"]
+[ext_resource type="Script" path="res://scenes/knife.gd" id="2_uswu0"]
+[ext_resource type="PackedScene" uid="uid://bemkpw06pted" path="res://scenes/cut_zone.tscn" id="3_2ecta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvtpt"]
+size = Vector2(8, 528)
+
+[node name="Chop" type="Node2D"]
+
+[node name="Fish" type="Sprite2D" parent="."]
+position = Vector2(848, 412)
+texture = ExtResource("1_mi4le")
+region_enabled = true
+region_rect = Rect2(1103.27, 2202.39, 980.568, 604.614)
+
+[node name="Knife" type="Area2D" parent="."]
+position = Vector2(368, 402)
+script = ExtResource("2_uswu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
+shape = SubResource("RectangleShape2D_nvtpt")
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Knife"]
+position = Vector2(-124, -464)
+color = Color(0.834614, 0.834614, 0.834614, 1)
+polygon = PackedVector2Array(120, 200, 120, 728, 128, 728, 128, 200)
+metadata/_edit_group_ = true
+
+[node name="LeftMarker" type="Marker2D" parent="."]
+position = Vector2(345, 403)
+
+[node name="RightMarker" type="Marker2D" parent="."]
+position = Vector2(1338, 418)
+
+[node name="CutZone" parent="." instance=ExtResource("3_2ecta")]
+
+[node name="CutZone2" parent="." instance=ExtResource("3_2ecta")]
+position = Vector2(104, 0)
+
+[node name="CutZone3" parent="." instance=ExtResource("3_2ecta")]
+position = Vector2(224, 0)
+
+[node name="CutZone4" parent="." instance=ExtResource("3_2ecta")]
+position = Vector2(320, 0)
+
+[node name="CutZone5" parent="." instance=ExtResource("3_2ecta")]
+position = Vector2(432, 0)
+
+[node name="CutZone6" parent="." instance=ExtResource("3_2ecta")]
+position = Vector2(528, 0)
+
+[node name="Score" type="Label" parent="."]
+offset_left = 176.0
+offset_top = 152.0
+offset_right = 352.0
+offset_bottom = 262.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionText" type="Label" parent="."]
+offset_left = 463.0
+offset_top = 8.0
+offset_right = 991.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Knife" to="Knife" method="_on_area_entered"]
+[connection signal="area_exited" from="Knife" to="Knife" method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="Knife" method="_on_timer_timeout"]
