@@ -37,24 +37,7 @@ position = Vector2(588, 178)
 script = ExtResource("2_kugd6")
 
 [node name="FishShape" type="CollisionShape2D" parent="Fish"]
-position = Vector2(770, 326)
-scale = Vector2(2.2, 1)
-shape = SubResource("CircleShape2D_a7opw")
-
-[node name="Fish2" type="Area2D" parent="."]
-position = Vector2(508, 386)
-script = ExtResource("2_kugd6")
-
-[node name="FishShape" type="CollisionShape2D" parent="Fish2"]
-position = Vector2(-26, 56)
-scale = Vector2(2.2, 1)
-shape = SubResource("CircleShape2D_a7opw")
-
-[node name="Fish3" type="Area2D" parent="."]
-script = ExtResource("2_kugd6")
-
-[node name="FishShape" type="CollisionShape2D" parent="Fish3"]
-position = Vector2(356, 250)
+position = Vector2(343, 334)
 scale = Vector2(2.2, 1)
 shape = SubResource("CircleShape2D_a7opw")
 
