@@ -1,20 +1,27 @@
 extends Area2D
 
 var dx: Vector2 = Vector2.RIGHT
-var speed: int = 6;
+var speed: int = 3;
 
 var zoneStack: Array[Area2D] = []
 
+var score = 0
+
+var score_label: Label
+var action_label: Label
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	score_label = get_parent().get_node('Score')
+	action_label = get_parent().get_node('ActionText')
 
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.is_action('chop'):
+			_on_chop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("chop"):
-		_on_chop()
-	
 	position = position + dx * speed
 	
 	var right_marker = get_parent().get_node("RightMarker")
@@ -35,14 +42,18 @@ func _on_chop():
 	var isPerfectChop = size == 2
 	
 	if isPerfectChop:
-		print('perfect!')
+		action_label.text = 'Perfect!'
+		score += 5
 		zoneStack[1].get_parent().queue_free()
 		
 	elif isNormalChop:
-		print('normal')
+		action_label.text = 'Normal chop'
+		score += 1
 		zoneStack[0].get_parent().queue_free()
 	else:
-		print('miss!')
+		action_label.text = 'Get gud scrub'
+		
+	score_label.text = str(score)
 	
 
 func _on_area_entered(area):
@@ -51,3 +62,7 @@ func _on_area_entered(area):
 
 func _on_area_exited(area):
 	zoneStack.pop_back()
+
+
+func _on_timer_timeout():
+	action_label.text = ''
