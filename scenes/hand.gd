@@ -1,3 +1,4 @@
+class_name Planet
 extends Area2D
 
 var n:float = 0.0
@@ -17,9 +18,10 @@ func _ready() -> void:
 
 func _input(ev):
 	if Input.is_key_pressed(KEY_SPACE):
-		extending = true
-		retracting = false
-		pass
+		if retracting != true:
+			extending = true
+			retracting = false
+
 
 func _on_body_entered(body):
 	var bottom_boundary = self.get_parent().get_parent().get_node("BottomBoundary")
@@ -32,37 +34,41 @@ func _on_body_entered(body):
 		_enter_retracting()
 		
 func _on_area_entered(area):
-	var fish = self.get_parent().get_parent().get_node("Fish")
-	if area == fish:
+	if fish_hooked == null && area is Fish:
 		fish_hooked = area
+	if area is Lobster:
+		extending = false
+		retracting = true
+		get_parent().get_parent().get_node("UserInterface").get_node("Score")._on_lobster_touched();
 	
 func _enter_rotation():
 	self.position = Vector2(0,0)
 	retracting = false
 	extending = false
-	fish_hooked = null
+	if (fish_hooked != null):
+		fish_hooked.consumed = true
+		fish_hooked = null
+		#I read doing this is super shit, I think I'm supposed to use signals but just trying to finish
+		get_parent().get_parent().get_node("UserInterface").get_node("Score")._on_fish_consumed();
 
 func _enter_retracting():
 	extending = false
 	retracting = true
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	if !extending && !retracting:
-		n += delta
+		n += delta * 1.5
 		self.rotation = sin(n) + 33
 	elif(extending):
-		self.translate(Vector2(1,0).rotated(self.rotation) * 2)
+		self.translate(Vector2(1,0).rotated(self.rotation) * 3)
 	elif(retracting):
-		self.translate(Vector2(-1,0).rotated(self.rotation) * 1.5)
+		self.translate(Vector2(-1,0).rotated(self.rotation) * 3)
 	
 	if fish_hooked != null:
-		var dist = fish_hooked.global_position - self.global_position
-		print (dist)
+		fish_hooked.hooked = true
 		extending = false
 		retracting = true
-		fish_hooked.position = self.position + dist
-		print(fish_hooked.position);
+		fish_hooked.translate(Vector2(-1,0).rotated(self.rotation) * 3)
 		
 	pass
 

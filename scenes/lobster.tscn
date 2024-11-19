@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwbmhucxgne3"]
+
+[ext_resource type="Script" path="res://scenes/lobster.gd" id="1_ca5mn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3bah"]
+
+[node name="Lobster" type="Area2D"]
+script = ExtResource("1_ca5mn")
+
+[node name="LobsterShape" type="CollisionShape2D" parent="."]
+position = Vector2(770, 326)
+scale = Vector2(2.2, 1)
+shape = SubResource("RectangleShape2D_m3bah")

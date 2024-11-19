@@ -1,4 +1,4 @@
-class_name Fish
+class_name Lobster
 extends Area2D
 
 @export var speed: int = 15
@@ -32,9 +32,9 @@ func _change_right():
 func _process(delta: float) -> void:
 	if !hooked:
 		if dir == 1:
-			self.translate(Vector2(1,0) * 0.7)	
+			self.translate(Vector2(1,0) * 0.4)	
 		elif dir == 2:
-			self.translate(Vector2(-1,0) * 0.7)	
+			self.translate(Vector2(-1,0) * 0.4)	
 	elif consumed:
 		self.queue_free()
 	

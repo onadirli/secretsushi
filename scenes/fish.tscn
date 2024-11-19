@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://q4bamm200k6h"]
+[gd_scene load_steps=3 format=3 uid="uid://bp7wbeqbrq2kg"]
 
 [ext_resource type="Script" path="res://scenes/fish.gd" id="1_2cnrg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2p7fe"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7opw"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Fish" type="Area2D"]
 script = ExtResource("1_2cnrg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_2p7fe")
-debug_color = Color(0, 0.6, 0.701961, 1)
+[node name="FishShape" type="CollisionShape2D" parent="."]
+position = Vector2(770, 326)
+scale = Vector2(2.2, 1)
+shape = SubResource("CircleShape2D_a7opw")
