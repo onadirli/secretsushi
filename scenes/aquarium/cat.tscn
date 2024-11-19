@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0mx16s2sexqb"]
 
-[ext_resource type="Script" path="res://scenes/hand.gd" id="2_kons0"]
+[ext_resource type="Script" path="res://scenes/aquarium/hand.gd" id="2_kons0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xscc8"]
 

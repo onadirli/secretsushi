@@ -1,7 +1,7 @@
 extends Node2D
 
-var fishScene  = preload("res://scenes/fish.tscn") 
-var lobsterScene  = preload("res://scenes/lobster.tscn") 
+var fishScene  = preload("res://scenes/aquarium/fish.tscn") 
+var lobsterScene  = preload("res://scenes/aquarium/lobster.tscn") 
 var x = 1;
 var y = 1;
 var amp = 1;

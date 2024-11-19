@@ -1,7 +1,7 @@
 class_name Lobster
 extends Area2D
 
-@export var speed: int = 15
+@export var speed: float = 0.4
 
 var dir = 1;
 var hooked = false;
@@ -11,13 +11,13 @@ func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	dir = randi_range(1,2)
+	
 	self.body_entered.connect(_on_body_entered)
 	pass
 
 func _on_body_entered(body):
 	var left_boundary = self.get_parent().get_node("LeftBoundary")
 	var right_boundary = self.get_parent().get_node("RightBoundary")
-	
 	if body == left_boundary:
 		_change_right()
 	elif body == right_boundary:
@@ -32,9 +32,9 @@ func _change_right():
 func _process(delta: float) -> void:
 	if !hooked:
 		if dir == 1:
-			self.translate(Vector2(1,0) * 0.4)	
+			self.translate(Vector2(1,0) * speed)	
 		elif dir == 2:
-			self.translate(Vector2(-1,0) * 0.4)	
+			self.translate(Vector2(-1,0) * speed)	
 	elif consumed:
 		self.queue_free()
 	

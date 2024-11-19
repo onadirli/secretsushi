@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://14am31r3ejin"]
 
-[ext_resource type="PackedScene" uid="uid://c0mx16s2sexqb" path="res://scenes/cat.tscn" id="1_jgk8t"]
-[ext_resource type="Script" path="res://scenes/aquarium.gd" id="1_yxlj7"]
-[ext_resource type="Script" path="res://scenes/score.gd" id="3_5r2kr"]
+[ext_resource type="PackedScene" uid="uid://c0mx16s2sexqb" path="res://scenes/aquarium/cat.tscn" id="1_jgk8t"]
+[ext_resource type="Script" path="res://scenes/aquarium/aquarium.gd" id="1_yxlj7"]
+[ext_resource type="Script" path="res://scenes/aquarium/score.gd" id="3_5r2kr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6rai"]
 size = Vector2(600, 400)

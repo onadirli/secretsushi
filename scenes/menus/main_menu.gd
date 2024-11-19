@@ -1,7 +1,7 @@
 extends Control
 
 @onready var main_game = preload("res://scenes/game.tscn") as PackedScene
-@onready var aquarium = preload("res://scenes/aquarium.tscn") as PackedScene
+@onready var aquarium = preload("res://scenes/aquarium/aquarium.tscn") as PackedScene
 
 
 # Called when the node enters the scene tree for the first time.
