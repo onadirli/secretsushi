@@ -1,7 +1,7 @@
-class_name Fish
+class_name Puffer
 extends Area2D
 
-@export var speed: float = 0.7
+@export var speed: float = 1
 
 var dir = 1;
 var hooked = false;
@@ -11,6 +11,8 @@ func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	dir = randi_range(1,2)
+	
+	speed += randf_range(0.1, 0.3);
 	
 	self.body_entered.connect(_on_body_entered)
 	pass
@@ -32,8 +34,10 @@ func _change_right():
 func _process(delta: float) -> void:
 	if !hooked:
 		if dir == 1:
+			$Puffer.scale.x = -0.2
 			self.translate(Vector2(1,0) * speed)	
 		elif dir == 2:
+			$Puffer.scale.x = 0.2
 			self.translate(Vector2(-1,0) * speed)	
 	elif consumed:
 		self.queue_free()

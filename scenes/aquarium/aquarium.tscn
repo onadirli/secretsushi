@@ -1,56 +1,82 @@
-[gd_scene load_steps=8 format=3 uid="uid://14am31r3ejin"]
+[gd_scene load_steps=11 format=3 uid="uid://14am31r3ejin"]
 
 [ext_resource type="PackedScene" uid="uid://c0mx16s2sexqb" path="res://scenes/aquarium/cat.tscn" id="1_jgk8t"]
 [ext_resource type="Script" path="res://scenes/aquarium/aquarium.gd" id="1_yxlj7"]
-[ext_resource type="Script" path="res://scenes/aquarium/score.gd" id="3_5r2kr"]
+[ext_resource type="Texture2D" uid="uid://dg2bj6233e6q6" path="res://scenes/aquarium/assets/background.png" id="2_tnf07"]
+[ext_resource type="Texture2D" uid="uid://djngmy86pctin" path="res://scenes/aquarium/assets/aquarium.png" id="3_4lwnr"]
+[ext_resource type="Texture2D" uid="uid://bci651rilkuqb" path="res://scenes/aquarium/assets/upperarm.png" id="3_j3k0e"]
+[ext_resource type="Script" path="res://scenes/aquarium/score.gd" id="5_ysjc7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6rai"]
-size = Vector2(600, 400)
+size = Vector2(1812, 787)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2347"]
-size = Vector2(20, 400)
+size = Vector2(20, 806)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1148"]
-size = Vector2(20, 400)
+size = Vector2(23, 795)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afqbh"]
-size = Vector2(640, 20)
+size = Vector2(1837, 20)
 
 [node name="Aquarium" type="Node2D"]
 script = ExtResource("1_yxlj7")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = -17.0
-offset_top = 37.0
-offset_right = 1136.0
-offset_bottom = 801.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1922.0
+offset_bottom = 1078.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="Panel"]
+texture = ExtResource("2_tnf07")
+centered = false
+
+[node name="Upperarm" type="Sprite2D" parent="Panel"]
+position = Vector2(973, 515)
+texture = ExtResource("3_j3k0e")
 
 [node name="AquariumArea" type="Area2D" parent="."]
 position = Vector2(-273, -117)
 
 [node name="AquariumShape" type="CollisionShape2D" parent="AquariumArea"]
-position = Vector2(864, 464)
+visible = false
+position = Vector2(1236, 719)
 shape = SubResource("RectangleShape2D_x6rai")
 
+[node name="Sprite2D" type="Sprite2D" parent="AquariumArea"]
+z_index = 2
+position = Vector2(1231, 655.5)
+scale = Vector2(1.01198, 0.991667)
+texture = ExtResource("3_4lwnr")
+
 [node name="Cat" parent="." instance=ExtResource("1_jgk8t")]
-position = Vector2(588, 178)
+position = Vector2(887, 242)
 
 [node name="LeftBoundary" type="StaticBody2D" parent="."]
 
 [node name="LeftBoundaryShape" type="CollisionShape2D" parent="LeftBoundary"]
-position = Vector2(282, 347)
+visible = false
+position = Vector2(42, 605)
 shape = SubResource("RectangleShape2D_s2347")
 
 [node name="RightBoundary" type="StaticBody2D" parent="."]
 
 [node name="RightBoundaryShape" type="CollisionShape2D" parent="RightBoundary"]
-position = Vector2(901, 347)
+visible = false
+position = Vector2(1887.5, 597.5)
 shape = SubResource("RectangleShape2D_h1148")
 
 [node name="BottomBoundary" type="StaticBody2D" parent="."]
 
 [node name="BottomBoundaryShape" type="CollisionShape2D" parent="BottomBoundary"]
-position = Vector2(592, 557)
+visible = false
+position = Vector2(969, 1005)
 shape = SubResource("RectangleShape2D_afqbh")
 
 [node name="UserInterface" type="Control" parent="."]
@@ -61,9 +87,9 @@ offset_bottom = 40.0
 
 [node name="Score" type="Label" parent="UserInterface"]
 layout_mode = 0
-offset_left = 306.0
-offset_top = 156.0
-offset_right = 424.0
-offset_bottom = 179.0
+offset_left = 147.0
+offset_top = 43.0
+offset_right = 265.0
+offset_bottom = 66.0
 text = "Score: 0"
-script = ExtResource("3_5r2kr")
+script = ExtResource("5_ysjc7")

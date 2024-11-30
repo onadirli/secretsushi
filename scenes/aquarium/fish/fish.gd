@@ -1,4 +1,4 @@
-class_name Lobster
+class_name Fish
 extends Area2D
 
 @export var speed: float = 1
@@ -7,15 +7,12 @@ var dir = 1;
 var hooked = false;
 var consumed = false;
 
-var difficulty = 1;
-
 func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	dir = randi_range(1,2)
 	
-	difficulty += randf_range(0,difficulty - 1)
-	speed += randf_range(-0.2, 0.2);
+	speed += randf_range(0.6, 0.8);
 	
 	self.body_entered.connect(_on_body_entered)
 	pass
@@ -37,11 +34,11 @@ func _change_right():
 func _process(delta: float) -> void:
 	if !hooked:
 		if dir == 1:
-			$Crab.scale.x = -0.2
-			self.translate(Vector2(1,0) * (speed + difficulty - 1))	
+			$Fish.scale.x = 0.2
+			self.translate(Vector2(1,0) * speed)	
 		elif dir == 2:
-			$Crab.scale.x = 0.2
-			self.translate(Vector2(-1,0) * (speed + difficulty - 1))	
+			$Fish.scale.x = -0.2
+			self.translate(Vector2(-1,0) * speed)	
 	elif consumed:
 		self.queue_free()
 	

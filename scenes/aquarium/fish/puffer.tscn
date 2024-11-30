@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4liv8ic758r7"]
+
+[ext_resource type="Script" path="res://scenes/aquarium/fish/puffer.gd" id="1_oj4sv"]
+[ext_resource type="Texture2D" uid="uid://br14ydclxlu1t" path="res://scenes/aquarium/assets/puffer.png" id="2_qclx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7opw"]
+
+[node name="Puffer" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_oj4sv")
+speed = 0.6
+
+[node name="PufferShape" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(2, 1)
+shape = SubResource("CircleShape2D_a7opw")
+
+[node name="Puffer" type="Sprite2D" parent="."]
+position = Vector2(-0.500004, 0.25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_qclx7")

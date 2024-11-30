@@ -7,5 +7,5 @@ func _on_fish_consumed():
 	text = "Score: %s" % score
 	
 func _on_lobster_touched():
-	score -= 20
+	score -= 50
 	text = "Score: %s" % score
