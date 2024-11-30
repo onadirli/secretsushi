@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://drkta6fthmgd7"]
+
+[ext_resource type="Script" path="res://scenes/chopper/fish.gd" id="1_522wt"]
+[ext_resource type="Texture2D" uid="uid://c20q7yvmr7l2d" path="res://scenes/chopper/assets/fish.png" id="2_bcydu"]
+[ext_resource type="Texture2D" uid="uid://cymyw2naj1kl2" path="res://scenes/chopper/assets/fish2.png" id="3_fc3dg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sw3bc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8i7o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bcydu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fc3dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bcydu")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 15.0
+}]
+
+[node name="Fish" type="RigidBody2D"]
+z_as_relative = false
+collision_layer = 2
+input_pickable = true
+script = ExtResource("1_522wt")
+fishbit1_texture = "res://scenes/chopper/assets/fishbit.png"
+fishbit2_texture = "res://scenes/chopper/assets/fishbit2.png"
+
+[node name="FishShape" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(7, 4)
+shape = SubResource("CircleShape2D_sw3bc")
+
+[node name="FishAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, 0)
+rotation = 0.359538
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_8i7o3")
+animation = &"damage"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

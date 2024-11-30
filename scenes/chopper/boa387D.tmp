@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cprvxas2xke85"]
+
+[ext_resource type="Script" path="res://scenes/chopper/bottom_spawn.gd" id="1_5y5xj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07lpd"]
+size = Vector2(992, 34.5)
+
+[node name="Board" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1000.0
+offset_bottom = 700.0
+
+[node name="BottomSpawn" type="StaticBody2D" parent="."]
+position = Vector2(503, 718)
+script = ExtResource("1_5y5xj")
+
+[node name="SpawnShape" type="CollisionShape2D" parent="BottomSpawn"]
+shape = SubResource("RectangleShape2D_07lpd")
