@@ -1,15 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://mauc2fcmcli4"]
+[gd_scene load_steps=9 format=3 uid="uid://mauc2fcmcli4"]
 
+[ext_resource type="Script" path="res://scenes/chop.gd" id="1_584xt"]
 [ext_resource type="Texture2D" uid="uid://b3qf6eyc7pbsh" path="res://assets/img/chop/fish.png" id="1_v7a65"]
 [ext_resource type="Script" path="res://scenes/knife.gd" id="2_uswu0"]
 [ext_resource type="PackedScene" uid="uid://bemkpw06pted" path="res://scenes/cut_zone.tscn" id="3_2ecta"]
 [ext_resource type="Texture2D" uid="uid://cqhet1bk16mxp" path="res://scenes/aquarium/assets/arm.png" id="4_3insu"]
 [ext_resource type="Texture2D" uid="uid://6t8a4yw82s6w" path="res://assets/img/chop/knife.png" id="5_v2tuo"]
+[ext_resource type="AudioStream" uid="uid://b7qlbn0g4xpiy" path="res://assets/audio/chop.mp3" id="7_bryrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvtpt"]
 size = Vector2(8, 528)
 
 [node name="Chop" type="Node2D"]
+script = ExtResource("1_584xt")
 
 [node name="TopLeft" type="Marker2D" parent="."]
 
@@ -18,11 +21,11 @@ position = Vector2(1133, 662)
 
 [node name="Fish" type="Sprite2D" parent="."]
 clip_children = 2
-position = Vector2(543.25, 300.5)
+position = Vector2(512, 299)
 scale = Vector2(1.04141, 1.2814)
 texture = ExtResource("1_v7a65")
 region_enabled = true
-region_rect = Rect2(370.956, 1195.99, 1123.49, 430.561)
+region_rect = Rect2(436.023, 1240.23, 977.282, 310.821)
 
 [node name="Knife" type="Area2D" parent="."]
 position = Vector2(32, 299)
@@ -63,10 +66,10 @@ position = Vector2(225, -104)
 position = Vector2(424, 96)
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = -120.0
-offset_top = -160.0
-offset_right = 225.0
-offset_bottom = 48.0
+offset_left = 808.0
+offset_top = 16.0
+offset_right = 1033.0
+offset_bottom = 200.0
 theme_override_font_sizes/font_size = 80
 text = "0"
 horizontal_alignment = 1
@@ -91,5 +94,11 @@ texture = ExtResource("5_v2tuo")
 region_enabled = true
 region_rect = Rect2(922.455, 649.49, 543.043, 584.815)
 
+[node name="ChopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bryrr")
+
 [connection signal="area_entered" from="Knife" to="Knife" method="_on_area_entered"]
 [connection signal="area_exited" from="Knife" to="Knife" method="_on_area_exited"]
+[connection signal="miss" from="Knife" to="." method="_on_knife_miss"]
+[connection signal="score_changed" from="Knife" to="." method="_on_score_changed"]
+[connection signal="show_action_label" from="Knife" to="." method="_on_show_action_label"]
