@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj8118nuwyigx"]
+
+[ext_resource type="Script" path="res://scenes/rice_game/rice_game.gd" id="1_jyh88"]
+[ext_resource type="Texture2D" uid="uid://kkpkkniewjgt" path="res://assets/img/rice_game/bowl.png" id="2_8qanp"]
+
+[node name="RiceGame" type="Node2D"]
+script = ExtResource("1_jyh88")
+
+[node name="rice_margin" type="Marker2D" parent="."]
+position = Vector2(1133, 662)
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = 465.0
+offset_top = 617.0
+offset_right = 747.0
+offset_bottom = 640.0
+text = "Try to circle as much rice as you can!"
+
+[node name="Bowl" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(1592, 1164)
+texture = ExtResource("2_8qanp")
+offset = Vector2(254, 206)
+
+[node name="BowlShadow" type="Sprite2D" parent="."]
+clip_children = 1
+use_parent_material = true
+position = Vector2(946, 1120)
+texture = ExtResource("2_8qanp")
+offset = Vector2(266, 213)
+
+[node name="Polygon2D" type="Polygon2D" parent="BowlShadow"]
+color = Color(0.113725, 0.113725, 0.113725, 0.545098)
+polygon = PackedVector2Array(-684, -540, 171, -557, 898, 196, 885, 605, 590, 1013, -605, 1009, -865, 80)
+
+[node name="mouse_clamp_min" type="Marker2D" parent="."]
+position = Vector2(118, 103)
+
+[node name="mouse_clamp_max" type="Marker2D" parent="."]
+position = Vector2(1002, 539)
+
+[node name="ResultLabel" type="Label" parent="."]
+visible = false
+z_index = 10
+offset_left = 360.0
+offset_top = 301.0
+offset_right = 874.0
+offset_bottom = 346.0
+theme_override_font_sizes/font_size = 32
+text = "You got 35! (best possible was 50)"
