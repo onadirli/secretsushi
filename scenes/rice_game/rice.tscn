@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://68mgmeyrl0mq"]
+
+[ext_resource type="Texture2D" uid="uid://dxkafshbeqlip" path="res://assets/img/rice_game/rice.png" id="1_p5wat"]
+[ext_resource type="Script" path="res://scenes/rice_game/rice.gd" id="2_1oobn"]
+
+[node name="Rice" type="Sprite2D"]
+texture = ExtResource("1_p5wat")
+hframes = 5
+script = ExtResource("2_1oobn")

@@ -16,11 +16,12 @@ position = Vector2(1, 0)
 script = ExtResource("1_h8bkd")
 
 [node name="RestaurantBackground" type="Sprite2D" parent="."]
+z_index = -5
 position = Vector2(960, 753)
 texture = ExtResource("4_qfnky")
 
 [node name="Counter" type="Sprite2D" parent="."]
-z_index = 5
+z_index = -3
 position = Vector2(960, 750)
 texture = ExtResource("3_v66qs")
 
@@ -39,7 +40,7 @@ position = Vector2(960, 1067)
 position = Vector2(1153, 305)
 
 [node name="Customer" type="Sprite2D" parent="."]
-z_index = 4
+z_index = -4
 position = Vector2(3618, 854)
 scale = Vector2(0.304237, 0.305976)
 texture = ExtResource("2_xye3x")
@@ -53,3 +54,9 @@ position = Vector2(-22, 529)
 rotation = 0.0294406
 rotates = false
 loop = false
+
+[node name="SmallMinigamePosition" type="Marker2D" parent="."]
+position = Vector2(365, 877)
+
+[node name="FullMinigamePosition" type="Marker2D" parent="."]
+position = Vector2(0, 521)
