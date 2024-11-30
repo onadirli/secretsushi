@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drkta6fthmgd7"]
+
+[ext_resource type="Script" path="res://scenes/chopper/fish.gd" id="1_fk12o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sw3bc"]
+
+[node name="Fish" type="RigidBody2D"]
+input_pickable = true
+script = ExtResource("1_fk12o")
+
+[node name="FishShape" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_sw3bc")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://cprvxas2xke85"]
+
+[ext_resource type="Script" path="res://scenes/chopper/bottom_spawn.gd" id="1_5y5xj"]
+[ext_resource type="Script" path="res://scenes/chopper/score.gd" id="2_wqreh"]
+[ext_resource type="Script" path="res://scenes/aquarium/time.gd" id="3_ltsr7"]
+[ext_resource type="Texture2D" uid="uid://cqhet1bk16mxp" path="res://scenes/chopper/assets/arm.png" id="4_jn8wi"]
+[ext_resource type="Script" path="res://scenes/chopper/arm.gd" id="5_jc3nj"]
+[ext_resource type="Texture2D" uid="uid://pgl7mbg5dqq5" path="res://scenes/chopper/assets/Untitled_Artwork.png" id="6_fa702"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07lpd"]
+size = Vector2(1923, 34.25)
+
+[node name="Board" type="Node2D"]
+position = Vector2(99, 79)
+
+[node name="BottomSpawn" type="StaticBody2D" parent="."]
+position = Vector2(524, 697)
+scale = Vector2(0.646776, 0.950002)
+collision_layer = 0
+script = ExtResource("1_5y5xj")
+
+[node name="SpawnShape" type="CollisionShape2D" parent="BottomSpawn"]
+position = Vector2(-10.5, -13)
+shape = SubResource("RectangleShape2D_07lpd")
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 43.0
+offset_right = 265.0
+offset_bottom = 66.0
+text = "Score: 0"
+script = ExtResource("2_wqreh")
+
+[node name="Time" type="Label" parent="UserInterface"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_ltsr7")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1133, 662)
+
+[node name="Arm" type="Sprite2D" parent="."]
+z_index = 2
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_jn8wi")
+script = ExtResource("5_jc3nj")
+
+[node name="Knife" type="Sprite2D" parent="Arm"]
+z_index = 1
+z_as_relative = false
+position = Vector2(684, -238)
+rotation = 1.38579
+texture = ExtResource("6_fa702")
