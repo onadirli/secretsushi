@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://limj6s4ob7if"]
+
+[ext_resource type="Texture2D" uid="uid://b4g0ihucc05ut" path="res://assets/img/chop/cut_ok.png" id="1_u3yy8"]
+
+[node name="Bloodsplatter" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.98023e-08, 0)
+scale = Vector2(1.02064, 1.26382)
+texture = ExtResource("1_u3yy8")
+region_enabled = true
+region_rect = Rect2(767.385, 1169.42, 109.142, 434.572)

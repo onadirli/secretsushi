@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://mauc2fcmcli4"]
 
-[ext_resource type="Texture2D" uid="uid://cltbfusr2xb4o" path="res://assets/img/placeholders/fish.png" id="1_mi4le"]
+[ext_resource type="Texture2D" uid="uid://b3qf6eyc7pbsh" path="res://assets/img/chop/fish.png" id="1_v7a65"]
 [ext_resource type="Script" path="res://scenes/knife.gd" id="2_uswu0"]
 [ext_resource type="PackedScene" uid="uid://bemkpw06pted" path="res://scenes/cut_zone.tscn" id="3_2ecta"]
 
@@ -9,14 +9,21 @@ size = Vector2(8, 528)
 
 [node name="Chop" type="Node2D"]
 
+[node name="TopLeft" type="Marker2D" parent="."]
+
+[node name="BottomRight" type="Marker2D" parent="."]
+position = Vector2(1133, 662)
+
 [node name="Fish" type="Sprite2D" parent="."]
-position = Vector2(848, 412)
-texture = ExtResource("1_mi4le")
+clip_children = 2
+position = Vector2(543.25, 300.5)
+scale = Vector2(1.04141, 1.2814)
+texture = ExtResource("1_v7a65")
 region_enabled = true
-region_rect = Rect2(1103.27, 2202.39, 980.568, 604.614)
+region_rect = Rect2(370.956, 1195.99, 1123.49, 430.561)
 
 [node name="Knife" type="Area2D" parent="."]
-position = Vector2(368, 402)
+position = Vector2(32, 299)
 script = ExtResource("2_uswu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
@@ -30,36 +37,34 @@ polygon = PackedVector2Array(120, 200, 120, 728, 128, 728, 128, 200)
 metadata/_edit_group_ = true
 
 [node name="LeftMarker" type="Marker2D" parent="."]
-position = Vector2(345, 403)
+position = Vector2(8, 280)
 
 [node name="RightMarker" type="Marker2D" parent="."]
-position = Vector2(1338, 418)
+position = Vector2(1056, 296)
 
 [node name="CutZone" parent="." instance=ExtResource("3_2ecta")]
+position = Vector2(-264, -104)
 
 [node name="CutZone2" parent="." instance=ExtResource("3_2ecta")]
-position = Vector2(104, 0)
+position = Vector2(-136, -104)
 
 [node name="CutZone3" parent="." instance=ExtResource("3_2ecta")]
-position = Vector2(224, 0)
+position = Vector2(-16, -104)
 
 [node name="CutZone4" parent="." instance=ExtResource("3_2ecta")]
-position = Vector2(320, 0)
+position = Vector2(104, -104)
 
 [node name="CutZone5" parent="." instance=ExtResource("3_2ecta")]
-position = Vector2(432, 0)
-
-[node name="CutZone6" parent="." instance=ExtResource("3_2ecta")]
-position = Vector2(528, 0)
+position = Vector2(225, -104)
 
 [node name="ActionMarker" type="Marker2D" parent="."]
 position = Vector2(424, 96)
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 112.0
-offset_top = 128.0
-offset_right = 457.0
-offset_bottom = 336.0
+offset_left = -120.0
+offset_top = -160.0
+offset_right = 225.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 80
 text = "0"
 horizontal_alignment = 1

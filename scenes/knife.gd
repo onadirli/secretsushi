@@ -1,6 +1,7 @@
 extends Area2D
 
 const animated_label_scene = preload("res://scenes/animated_label.tscn")
+const blood_splatter_scene = preload("res://scenes/bloodsplatter.tscn")
 
 var dx: Vector2 = Vector2.RIGHT
 var speed: int = 3;
@@ -13,6 +14,7 @@ var score = 0
 @onready var left_marker: Marker2D = get_parent().get_node('LeftMarker')
 
 @onready var action_marker: Marker2D = get_parent().get_node('ActionMarker')
+@onready var fish: Sprite2D = get_parent().get_node('Fish')
 
 
 # Called when the node enters the scene tree for the first time.
@@ -52,12 +54,21 @@ func _on_chop():
 		score += 1
 		zoneStack[0].get_parent().queue_free()
 		
+	# Add blood splatter
+	var blood_splatter = blood_splatter_scene.instantiate()
+	blood_splatter.position = fish.get_global_transform().inverse() * global_position
+	
+	
+	fish.add_child(blood_splatter)
+	
+	# Display action label	
 	var action_label = animated_label_scene.instantiate()
 	action_label.text = label_text
 	action_label.position = action_marker.position
 	
 	get_parent().add_child(action_label)
 	
+	# Update score
 	var score_label = get_parent().get_node('ScoreLabel')
 	score_label.text = str(score)
 	
