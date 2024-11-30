@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://14am31r3ejin"]
+
+[ext_resource type="PackedScene" uid="uid://c0mx16s2sexqb" path="res://scenes/cat.tscn" id="1_jgk8t"]
+[ext_resource type="Script" path="res://scenes/fish.gd" id="2_kugd6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6rai"]
+size = Vector2(600, 400)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7opw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2347"]
+size = Vector2(20, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1148"]
+size = Vector2(20, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afqbh"]
+size = Vector2(640, 20)
+
+[node name="Aquarium" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1153.0
+offset_bottom = 764.0
+
+[node name="AquariumArea" type="Area2D" parent="."]
+position = Vector2(-273, -117)
+
+[node name="AquariumShape" type="CollisionShape2D" parent="AquariumArea"]
+position = Vector2(864, 464)
+shape = SubResource("RectangleShape2D_x6rai")
+
+[node name="Cat" parent="." instance=ExtResource("1_jgk8t")]
+position = Vector2(588, 178)
+
+[node name="Fish" type="Area2D" parent="."]
+script = ExtResource("2_kugd6")
+
+[node name="FishShape" type="CollisionShape2D" parent="Fish"]
+position = Vector2(343, 334)
+scale = Vector2(2.2, 1)
+shape = SubResource("CircleShape2D_a7opw")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="."]
+
+[node name="LeftBoundaryShape" type="CollisionShape2D" parent="LeftBoundary"]
+position = Vector2(280, 347)
+shape = SubResource("RectangleShape2D_s2347")
+
+[node name="RightBoundary" type="StaticBody2D" parent="."]
+
+[node name="RightBoundaryShape" type="CollisionShape2D" parent="RightBoundary"]
+position = Vector2(902, 347)
+shape = SubResource("RectangleShape2D_h1148")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="."]
+
+[node name="BottomBoundaryShape" type="CollisionShape2D" parent="BottomBoundary"]
+position = Vector2(593, 557)
+shape = SubResource("RectangleShape2D_afqbh")

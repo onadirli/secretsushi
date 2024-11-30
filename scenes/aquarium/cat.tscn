@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0mx16s2sexqb"]
+
+[ext_resource type="Script" path="res://scenes/aquarium/hand.gd" id="2_kons0"]
+[ext_resource type="Texture2D" uid="uid://b6qjpysq152kx" path="res://scenes/aquarium/assets/blackout.png" id="3_odm2v"]
+[ext_resource type="AudioStream" uid="uid://buqegdc0v18nn" path="res://scenes/aquarium/assets/pain.mp3" id="4_43f6f"]
+[ext_resource type="AudioStream" uid="uid://slr1lys53vbb" path="res://scenes/aquarium/assets/splash.mp3" id="5_ua12s"]
+[ext_resource type="Texture2D" uid="uid://cqhet1bk16mxp" path="res://scenes/aquarium/assets/arm.png" id="6_1l7dg"]
+[ext_resource type="AudioStream" uid="uid://b3xie8yu078yg" path="res://scenes/aquarium/assets/snap.mp3" id="6_8yifc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xscc8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k35ma"]
+
+[node name="Cat" type="StaticBody2D"]
+
+[node name="CatShape" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_xscc8")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="Blackout" type="Sprite2D" parent="."]
+clip_children = 1
+z_index = 1
+z_as_relative = false
+position = Vector2(4, 814)
+texture = ExtResource("3_odm2v")
+
+[node name="Hand" type="Area2D" parent="Blackout"]
+position = Vector2(-4.00003, -814)
+script = ExtResource("2_kons0")
+
+[node name="Paw" type="Sprite2D" parent="Blackout/Hand"]
+position = Vector2(-274, 42)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_1l7dg")
+
+[node name="HandShape" type="CollisionShape2D" parent="Blackout/Hand"]
+visible = false
+position = Vector2(150, 0)
+scale = Vector2(6, 6)
+shape = SubResource("CapsuleShape2D_k35ma")
+
+[node name="Pain" type="AudioStreamPlayer" parent="Blackout/Hand"]
+stream = ExtResource("4_43f6f")
+
+[node name="Splash" type="AudioStreamPlayer" parent="Blackout/Hand"]
+stream = ExtResource("5_ua12s")
+
+[node name="Snap" type="AudioStreamPlayer" parent="Blackout/Hand"]
+stream = ExtResource("6_8yifc")

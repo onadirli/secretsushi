@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://14am31r3ejin"]
+
+[ext_resource type="PackedScene" uid="uid://c0mx16s2sexqb" path="res://scenes/aquarium/cat.tscn" id="1_jgk8t"]
+[ext_resource type="Script" path="res://scenes/aquarium/aquarium.gd" id="1_yxlj7"]
+[ext_resource type="Script" path="res://scenes/aquarium/score.gd" id="3_5r2kr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6rai"]
+size = Vector2(600, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2347"]
+size = Vector2(20, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1148"]
+size = Vector2(20, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afqbh"]
+size = Vector2(640, 20)
+
+[node name="Aquarium" type="Node2D"]
+script = ExtResource("1_yxlj7")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -17.0
+offset_top = 37.0
+offset_right = 1136.0
+offset_bottom = 801.0
+
+[node name="AquariumArea" type="Area2D" parent="."]
+position = Vector2(-273, -117)
+
+[node name="AquariumShape" type="CollisionShape2D" parent="AquariumArea"]
+position = Vector2(864, 464)
+shape = SubResource("RectangleShape2D_x6rai")
+
+[node name="Cat" parent="." instance=ExtResource("1_jgk8t")]
+position = Vector2(588, 178)
+
+[node name="LeftBoundary" type="StaticBody2D" parent="."]
+
+[node name="LeftBoundaryShape" type="CollisionShape2D" parent="LeftBoundary"]
+position = Vector2(282, 347)
+shape = SubResource("RectangleShape2D_s2347")
+
+[node name="RightBoundary" type="StaticBody2D" parent="."]
+
+[node name="RightBoundaryShape" type="CollisionShape2D" parent="RightBoundary"]
+position = Vector2(901, 347)
+shape = SubResource("RectangleShape2D_h1148")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="."]
+
+[node name="BottomBoundaryShape" type="CollisionShape2D" parent="BottomBoundary"]
+position = Vector2(592, 557)
+shape = SubResource("RectangleShape2D_afqbh")
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 156.0
+offset_right = 424.0
+offset_bottom = 179.0
+text = "Score: 0"
+script = ExtResource("3_5r2kr")

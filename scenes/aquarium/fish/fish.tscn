@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp7wbeqbrq2kg"]
+
+[ext_resource type="Script" path="res://scenes/aquarium/fish/fish.gd" id="1_b6j21"]
+[ext_resource type="Texture2D" uid="uid://c20q7yvmr7l2d" path="res://scenes/chopper/assets/fish.png" id="2_w8hps"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7opw"]
+
+[node name="Fish" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_b6j21")
+
+[node name="FishShape" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(2, 1)
+shape = SubResource("CircleShape2D_a7opw")
+
+[node name="Fish" type="Sprite2D" parent="."]
+position = Vector2(-1.75, 2.75)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_w8hps")

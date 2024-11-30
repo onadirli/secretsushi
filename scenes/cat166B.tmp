@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0mx16s2sexqb"]
+
+[ext_resource type="Script" path="res://scenes/cat.gd" id="1_5hr4y"]
+[ext_resource type="Script" path="res://scenes/hand.gd" id="2_kons0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xscc8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k35ma"]
+
+[node name="Cat" type="StaticBody2D"]
+script = ExtResource("1_5hr4y")
+
+[node name="CatShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xscc8")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="Hand" type="Area2D" parent="."]
+script = ExtResource("2_kons0")
+
+[node name="HandShape" type="CollisionShape2D" parent="Hand"]
+position = Vector2(22, -1)
+shape = SubResource("CapsuleShape2D_k35ma")
