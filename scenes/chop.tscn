@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://mauc2fcmcli4"]
+[gd_scene load_steps=7 format=3 uid="uid://mauc2fcmcli4"]
 
 [ext_resource type="Texture2D" uid="uid://b3qf6eyc7pbsh" path="res://assets/img/chop/fish.png" id="1_v7a65"]
 [ext_resource type="Script" path="res://scenes/knife.gd" id="2_uswu0"]
 [ext_resource type="PackedScene" uid="uid://bemkpw06pted" path="res://scenes/cut_zone.tscn" id="3_2ecta"]
+[ext_resource type="Texture2D" uid="uid://cqhet1bk16mxp" path="res://scenes/aquarium/assets/arm.png" id="4_3insu"]
+[ext_resource type="Texture2D" uid="uid://6t8a4yw82s6w" path="res://assets/img/chop/knife.png" id="5_v2tuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvtpt"]
 size = Vector2(8, 528)
@@ -69,6 +71,25 @@ theme_override_font_sizes/font_size = 80
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Paw" type="Node2D" parent="."]
+position = Vector2(1864, 256)
+
+[node name="Paw" type="Sprite2D" parent="Paw"]
+z_index = 1
+position = Vector2(198.455, 942.455)
+rotation = -1.70519
+scale = Vector2(1, -1)
+texture = ExtResource("4_3insu")
+region_enabled = true
+region_rect = Rect2(74.2939, 343.967, 1529.01, 274.937)
+
+[node name="Knife" type="Sprite2D" parent="Paw"]
+position = Vector2(110.455, 30.4547)
+rotation = 0.785397
+texture = ExtResource("5_v2tuo")
+region_enabled = true
+region_rect = Rect2(922.455, 649.49, 543.043, 584.815)
 
 [connection signal="area_entered" from="Knife" to="Knife" method="_on_area_entered"]
 [connection signal="area_exited" from="Knife" to="Knife" method="_on_area_exited"]
