@@ -5,20 +5,25 @@ var n:float = 0.0
 
 var extending:bool = false
 var retracting:bool = false
-var fish_hooked;
-var init_position;
+var fish_hooked
+var init_position
 
-var fish_count = 0;
-var fish_total = 0;
+var fish_count = 0
+var time_seconds
+var timing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	enable_input(true)
 	self.body_entered.connect(_on_body_entered)
 	self.area_entered.connect(_on_area_entered)
 	pass
 	
 func enable_input(enable):
-	set_process_input(enable) 
+	if enable:
+		timing = true
+		time_seconds = 10.0
+		set_process_input(enable) 
 
 func _input(ev):
 	if Input.is_key_pressed(KEY_SPACE):
@@ -55,9 +60,6 @@ func _enter_rotation():
 		fish_count += 1
 		#I read doing this is super shit, I think I'm supposed to use signals but just trying to finish
 		get_parent().get_parent().get_parent().get_node("UserInterface").get_node("Score")._on_fish_consumed();
-		if fish_count == fish_total:
-			#Do some logic here to exit and leave with score
-			print ("WIN")
 
 func _enter_extending():
 	extending = true
@@ -69,6 +71,18 @@ func _enter_retracting():
 	retracting = true
 
 func _process(delta: float) -> void:
+	if time_seconds < 0 && timing == true:
+		timing = false
+		print("GAME END")
+		if fish_count == 3:
+			print ("Perfect")
+		if fish_count == 2:
+			print ("Win")
+		if fish_count <= 1:
+			print ("Lose")
+	if timing:
+		get_parent().get_parent().get_parent().get_node("UserInterface").get_node("Time").set_time(time_seconds);
+		time_seconds -= delta
 	if !extending && !retracting:
 		init_position = self.position;
 		n += delta * 1.5

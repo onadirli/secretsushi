@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://14am31r3ejin"]
+[gd_scene load_steps=11 format=3 uid="uid://14am31r3ejin"]
 
 [ext_resource type="PackedScene" uid="uid://c0mx16s2sexqb" path="res://scenes/aquarium/cat.tscn" id="1_jgk8t"]
 [ext_resource type="Script" path="res://scenes/aquarium/aquarium.gd" id="1_yxlj7"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://djngmy86pctin" path="res://scenes/aquarium/assets/aquarium.png" id="3_4lwnr"]
 [ext_resource type="Texture2D" uid="uid://bci651rilkuqb" path="res://scenes/aquarium/assets/upperarm.png" id="3_j3k0e"]
 [ext_resource type="Script" path="res://scenes/aquarium/score.gd" id="5_ysjc7"]
-[ext_resource type="Script" path="res://scenes/aquarium/time.gd" id="7_rlnlw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6rai"]
 size = Vector2(1812, 787)
@@ -95,8 +94,19 @@ offset_bottom = 66.0
 text = "Score: 0"
 script = ExtResource("5_ysjc7")
 
-[node name="Time" type="Label" parent="UserInterface"]
+[node name="Seconds" type="Label" parent="UserInterface"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("7_rlnlw")
+offset_left = 126.0
+offset_top = 66.0
+offset_right = 166.0
+offset_bottom = 89.0
+text = "00"
+horizontal_alignment = 2
+
+[node name="Milliseconds" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 66.0
+offset_right = 213.0
+offset_bottom = 89.0
+text = "00"
