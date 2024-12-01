@@ -8,12 +8,21 @@ var clicks_to_kill = 1;
 # set this from aquarium instead
 var difficulty = 1;
 var curr_clicks = 0;
+var initial_y: int;
+var lost = false;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	clicks_to_kill *= randi_range(3,difficulty + 4)
+	initial_y = self.position.y
 
+func _process(delta: float) -> void:
+	if self.position.y > initial_y && !lost:
+		lost = true
+		self.queue_free()
+		get_parent().get_node("BottomSpawn").fish_missed += 1
+		
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		curr_clicks += 1
