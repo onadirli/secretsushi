@@ -1,6 +1,16 @@
-[gd_resource type="Resource" script_class="CustomerSprites" load_steps=2 format=3 uid="uid://banhwumh5w64m"]
+[gd_resource type="Resource" script_class="CustomerSprites" load_steps=7 format=3 uid="uid://banhwumh5w64m"]
 
 [ext_resource type="Script" path="res://global/customer_resource.gd" id="1_7qeol"]
+[ext_resource type="Texture2D" uid="uid://dvj4t1xb41wqk" path="res://assets/img/characters/thief/thief_happy.png" id="1_7qp3k"]
+[ext_resource type="Texture2D" uid="uid://bd3y282s6tg5k" path="res://assets/img/characters/thief/thief_neutral.png" id="2_ut2ww"]
+[ext_resource type="Texture2D" uid="uid://b36ehpl6dca7t" path="res://assets/img/characters/thief/thief_portrait.png" id="3_3ufqg"]
+[ext_resource type="Texture2D" uid="uid://bg1wqta2pnfw1" path="res://assets/img/characters/thief/thief_sad.png" id="4_xeath"]
+[ext_resource type="Texture2D" uid="uid://8ip7i583m0dq" path="res://assets/img/characters/thief/thief_walk.png" id="6_y2cyn"]
 
 [resource]
 script = ExtResource("1_7qeol")
+walk = ExtResource("6_y2cyn")
+neutral = ExtResource("2_ut2ww")
+happy = ExtResource("1_7qp3k")
+sad = ExtResource("4_xeath")
+portrait = ExtResource("3_3ufqg")
