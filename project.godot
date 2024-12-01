@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 Signals="*res://global/signals.gd"
+BackgroundAudio="*res://scenes/BackgroundAudio.tscn"
 
 [display]
 
