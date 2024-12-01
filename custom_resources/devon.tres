@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CustomerSprites" load_steps=6 format=3 uid="uid://dpg08o4omxwqi"]
+[gd_resource type="Resource" script_class="CustomerSprites" load_steps=6 format=3 uid="uid://cu7erj0tt6mb0"]
 
 [ext_resource type="Texture2D" uid="uid://c703hg66583c" path="res://assets/img/characters/devon/neutral.png" id="1_cjjih"]
 [ext_resource type="Script" path="res://global/customer_resource.gd" id="1_tfcy0"]
