@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CustomerSprites" load_steps=6 format=3 uid="uid://cvi3vijdrrklo"]
+[gd_resource type="Resource" script_class="CustomerSprites" load_steps=7 format=3 uid="uid://cvi3vijdrrklo"]
 
 [ext_resource type="Texture2D" uid="uid://28mn46dgs3hs" path="res://assets/img/characters/rahul/rahul_happy.png" id="1_dashh"]
 [ext_resource type="Script" path="res://global/customer_resource.gd" id="1_j5ksc"]
 [ext_resource type="Texture2D" uid="uid://dw35yr3b2x1e3" path="res://assets/img/characters/rahul/rahul_neutral.png" id="2_wwgqc"]
+[ext_resource type="Texture2D" uid="uid://k4bl8ydo8bi6" path="res://assets/img/characters/rahul/rahul_portrait.png" id="3_0fdjt"]
 [ext_resource type="Texture2D" uid="uid://ejsurw8h5jkc" path="res://assets/img/characters/rahul/rahul_sad.png" id="3_xscfs"]
 [ext_resource type="Texture2D" uid="uid://dj3y1syb4jbik" path="res://assets/img/characters/rahul/rahul_walk.png" id="5_uisqt"]
 
@@ -12,3 +13,4 @@ walk = ExtResource("5_uisqt")
 neutral = ExtResource("2_wwgqc")
 happy = ExtResource("1_dashh")
 sad = ExtResource("3_xscfs")
+portrait = ExtResource("3_0fdjt")
