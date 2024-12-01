@@ -22,7 +22,7 @@ func _ready() -> void:
 func enable_input(enable):
 	if enable:
 		timing = true
-		time_seconds = 20.0
+		time_seconds = 30.0
 		set_process_input(enable) 
 
 func _input(ev):
