@@ -79,6 +79,7 @@ func progress_game_state():
 				new_day()
 				minigames.shuffle()
 				customers.shuffle()
+				curr_customer = -1
 
 			
 			$CustomerPath/Follower.progress = 0

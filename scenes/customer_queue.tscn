@@ -462,4 +462,4 @@ loop = false
 position = Vector2(365, 877)
 
 [node name="FullMinigamePosition" type="Marker2D" parent="."]
-position = Vector2(0, 557)
+position = Vector2(0, 512)
