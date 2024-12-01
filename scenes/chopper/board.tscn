@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cprvxas2xke85"]
+[gd_scene load_steps=10 format=3 uid="uid://cprvxas2xke85"]
 
 [ext_resource type="Script" path="res://scenes/chopper/bottom_spawn.gd" id="1_5y5xj"]
 [ext_resource type="Script" path="res://scenes/chopper/board.gd" id="1_7fgqo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqhet1bk16mxp" path="res://scenes/chopper/assets/arm.png" id="4_jn8wi"]
 [ext_resource type="Script" path="res://scenes/chopper/arm.gd" id="5_jc3nj"]
 [ext_resource type="Texture2D" uid="uid://pgl7mbg5dqq5" path="res://scenes/chopper/assets/Untitled_Artwork.png" id="6_fa702"]
+[ext_resource type="AudioStream" uid="uid://dgdkwl7p0oef" path="res://assets/audio/knife-slash.wav" id="8_e8pso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07lpd"]
 size = Vector2(1923, 34.25)
@@ -64,6 +65,9 @@ z_as_relative = false
 position = Vector2(684, -238)
 rotation = 1.38579
 texture = ExtResource("6_fa702")
+
+[node name="KnifeSlash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_e8pso")
 
 [connection signal="game_over" from="BottomSpawn" to="." method="_on_game_over"]
 [connection signal="score_changed" from="UserInterface/Score" to="." method="_on_score_changed"]

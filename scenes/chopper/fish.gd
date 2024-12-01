@@ -38,6 +38,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			
 			
 			get_parent().get_node("UserInterface").get_node("Score")._on_fish_cut();
+			get_parent().get_node("KnifeSlash").play()
 			self.queue_free()
 			var fishbit1 = fishbit.instantiate()
 			var fishbit2 = fishbit.instantiate()
