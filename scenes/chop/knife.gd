@@ -39,6 +39,7 @@ func chop():
 	var isPerfectChop = size == 2
 	
 	var old_score = score
+	var is_hit = false
 	
 	# Figure out perfect chop or okay chop or bad chop
 	var label_text = ''
@@ -46,22 +47,26 @@ func chop():
 		label_text = 'Perfect!'
 		score += 5
 		zoneStack[1].get_parent().queue_free()
-		hit.emit()
+		is_hit = true
 		
 	elif isNormalChop:
 		label_text = 'Not bad'
 		score += 3
 		zoneStack[0].get_parent().queue_free()
-		hit.emit()
+		is_hit = true
 	else:
 		label_text = 'This will not do'
-		miss.emit()
 
 	# Display action label	
 	show_action_label.emit(label_text)
 	
 	# Update score
 	score_changed.emit(old_score, score)
+	
+	if is_hit:
+		hit.emit()
+	else:
+		miss.emit()
 	
 
 func toggle_controls(enabled: bool = true):
