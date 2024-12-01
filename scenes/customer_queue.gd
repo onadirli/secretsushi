@@ -9,6 +9,8 @@ var minigames = [
 	preload("res://scenes/chop/chop.tscn"),
 	preload("res://scenes/chopper/board.tscn")
 ]
+const aquarium = preload("res://scenes/aquarium/aquarium.tscn")
+const animated_label = preload("res://scenes/animated_label.tscn")
 var curr_customer = null
 
 var game_state: State = State.CustomerWalkingIn
@@ -80,7 +82,6 @@ func progress_game_state():
 			minigame.enable_input(true)
 		State.CookingResult:
 			minigame.enable_input(false)
-			progress_game_state()
 			pass
 		State.CustomerReaction:
 			progress_game_state()
@@ -91,24 +92,34 @@ func progress_game_state():
 		
 		
 func new_day():
-	#TODO
-	pass
+	var l = animated_label.instantiate()
+	l.text = "Day %d" % (day+1)
+	l.position = %MessagePosition.position
+	$Camera2D.add_child(l)
 	
 func make_new_customer():
 	#TODO
 	pass
 
 func make_new_minigame():
-	if minigame != null:
-		minigame.queue_free()
-	var s = minigames[curr_minigame].instantiate()
+	var scene = minigames[curr_minigame]
+	var s = scene.instantiate()
 	s.set_difficulty(day)
-	s.position = $SmallMinigamePosition.position
+	
+	if scene == aquarium:
+		s.position = $FullMinigamePosition.position
+	else:
+		s.position = $SmallMinigamePosition.position
 	s.enable_input(false)
 	add_child(s)
 	minigame = s
 	
 
 func minigame_over(score: int):
+	if game_state != State.CookingMinigame:
+		return
+	if minigame != null:
+		minigame.queue_free()
+	progress_game_state()
 	camera_up()
 	
