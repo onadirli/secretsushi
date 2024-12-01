@@ -20,7 +20,7 @@ var customers: Array[CustomerSprites] = [
 
 const aquarium = preload("res://scenes/aquarium/aquarium.tscn")
 const animated_label = preload("res://scenes/animated_label.tscn")
-var curr_customer = 0
+var curr_customer = -1
 
 var game_state: State = State.CustomerWalkingIn
 var minigame = null
@@ -135,12 +135,15 @@ func minigame_over(score: int):
 	if score == 0:
 		$Camera2D/ResultBackground.texture = preload("res://assets/img/red_background.png")
 		$Camera2D/ResultText.texture = preload("res://assets/img/failure.png")
+		$Customer.texture = customers[curr_customer].sad
 	elif score == 1:
 		$Camera2D/ResultBackground.texture = preload("res://assets/img/purple_background.png")
 		$Camera2D/ResultText.texture = preload("res://assets/img/success.png")
+		$Customer.texture = customers[curr_customer].neutral
 	elif score == 2:
 		$Camera2D/ResultBackground.texture = preload("res://assets/img/green_background.png")
 		$Camera2D/ResultText.texture = preload("res://assets/img/perfect.png")
+		$Customer.texture = customers[curr_customer].happy
 	
 	$AnimationPlayer.play("AnimateResult")
 	progress_game_state()
