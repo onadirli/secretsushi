@@ -88,15 +88,19 @@ offset_bottom = 40.0
 
 [node name="Score" type="Label" parent="UserInterface"]
 layout_mode = 0
-offset_left = 147.0
-offset_top = 43.0
-offset_right = 265.0
-offset_bottom = 66.0
+offset_left = 56.0
+offset_top = 100.0
+offset_right = 177.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 32
 text = "Score: 0"
 script = ExtResource("5_ysjc7")
 
 [node name="Time" type="Label" parent="UserInterface"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 65.0
+offset_top = 43.0
+offset_right = 105.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 32
 script = ExtResource("7_rlnlw")
