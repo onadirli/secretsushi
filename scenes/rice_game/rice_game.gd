@@ -105,22 +105,22 @@ func _show_results():
 		Signals.minigame_over.emit(1)
 	else:
 		Signals.minigame_over.emit(0)
-	
-
-	
 
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("Mouse Click at: ", event.position)
+		# print("Mouse Click at: ", event.position)
 		if bowl_following_mouse:
 			bowl_following_mouse = false
+			
 			var t = create_tween()
 			t.tween_property($Bowl, "position", $BowlShadow.position, 1.0).set_trans(Tween.TRANS_CIRC)
 			t.tween_callback(_show_results)
 			
+			$Thud.play()
+			
 	elif event is InputEventMouseMotion:
-		print("Mouse Motion at: ", event.position)
+		# print("Mouse Motion at: ", event.position)
 		if bowl_following_mouse:
 			var pos = get_local_mouse_position()
 			pos = pos.clamp($mouse_clamp_min.position, $mouse_clamp_max.position)

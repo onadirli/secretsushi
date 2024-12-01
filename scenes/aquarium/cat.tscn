@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/aquarium/hand.gd" id="2_kons0"]
 [ext_resource type="Texture2D" uid="uid://b6qjpysq152kx" path="res://scenes/aquarium/assets/blackout.png" id="3_odm2v"]
-[ext_resource type="AudioStream" uid="uid://buqegdc0v18nn" path="res://scenes/aquarium/assets/pain.mp3" id="4_43f6f"]
+[ext_resource type="AudioStream" uid="uid://bwkwitty303yg" path="res://assets/cat_meow.mp3" id="4_l11oa"]
 [ext_resource type="AudioStream" uid="uid://slr1lys53vbb" path="res://scenes/aquarium/assets/splash.mp3" id="5_ua12s"]
 [ext_resource type="Texture2D" uid="uid://cqhet1bk16mxp" path="res://scenes/chopper/assets/arm.png" id="6_1l7dg"]
 [ext_resource type="AudioStream" uid="uid://b3xie8yu078yg" path="res://scenes/aquarium/assets/snap.mp3" id="6_8yifc"]
@@ -41,7 +41,7 @@ scale = Vector2(6, 6)
 shape = SubResource("CapsuleShape2D_k35ma")
 
 [node name="Pain" type="AudioStreamPlayer" parent="Blackout/Hand"]
-stream = ExtResource("4_43f6f")
+stream = ExtResource("4_l11oa")
 
 [node name="Splash" type="AudioStreamPlayer" parent="Blackout/Hand"]
 stream = ExtResource("5_ua12s")
