@@ -3,6 +3,7 @@ extends Area2D
 signal score_changed(old_value, new_value)
 signal show_action_label(text)
 signal miss
+signal hit
 
 var dx: Vector2 = Vector2.RIGHT
 var zoneStack: Array[Area2D] = []
@@ -45,11 +46,13 @@ func chop():
 		label_text = 'Perfect!'
 		score += 5
 		zoneStack[1].get_parent().queue_free()
+		hit.emit()
 		
 	elif isNormalChop:
 		label_text = 'Not bad'
-		score += 1
+		score += 3
 		zoneStack[0].get_parent().queue_free()
+		hit.emit()
 	else:
 		label_text = 'This will not do'
 		miss.emit()

@@ -1,12 +1,20 @@
 extends Node2D
 
+const GAME_FAIL = 0
+const GAME_OK = 1
+const GAME_PERFECT = 2
+
 const blood_splatter_scene = preload("res://scenes/chop/bloodsplatter.tscn")
 const animated_label_scene = preload("res://scenes/animated_label.tscn")
 
 var are_controls_enabled = true
 
 var misses: int = 0
+var hits: int = 0
+
 var max_misses: int = 5
+var min_score_okay = 15
+var min_score_perfect = 20
 
 var score: int = 0
 
@@ -40,9 +48,9 @@ func _handle_chop():
 	
 	$ChopSound.play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _ready():
+	var tries_remaining = max_misses - misses
+	$TriesLabel.text = 'Tries: %s' % tries_remaining
 
 func set_difficulty(difficulty: int = 2):
 	if difficulty < 1 or difficulty > 3:
@@ -60,10 +68,6 @@ func _add_blood():
 	
 func enable_input(is_enabled: bool = true):
 	knife.toggle_controls(is_enabled)
-	
-func _on_finish():
-	pass
-
 
 func _on_score_changed(old_score, new_score):
 	score = new_score
@@ -77,10 +81,28 @@ func _on_show_action_label(text):
 	
 	add_child(action_label)
 
+func _on_finish():
+	enable_input(false)
+	
+	if score > min_score_perfect:
+		Signals.minigame_over.emit(GAME_PERFECT)
+	elif score > min_score_okay:
+		Signals.minigame_over.emit(GAME_OK)
+	else:
+		Signals.minigame_over.emit(GAME_FAIL)
 
 func _on_knife_miss():
 	misses += 1
 	
+	var tries_remaining = max(max_misses - misses, 0)
+	$TriesLabel.text = 'Tries: %s' % tries_remaining
+	
 	if misses >= max_misses:
-		enable_input(false)
+		_on_finish()
+
+
+func _on_knife_hit():
+	hits += 1
+	
+	if hits == 5:
 		_on_finish()
