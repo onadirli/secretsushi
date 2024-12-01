@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7ydnsdxhos6f"]
+[gd_scene load_steps=16 format=3 uid="uid://c7ydnsdxhos6f"]
 
 [ext_resource type="Script" path="res://scenes/customer_queue.gd" id="1_h8bkd"]
 [ext_resource type="Texture2D" uid="uid://b0tthd1a43rxi" path="res://assets/img/placeholders/customer.png" id="2_xye3x"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dopodsystbl7j" path="res://assets/img/characters/player_portrait.png" id="5_ubp3a"]
 [ext_resource type="Texture2D" uid="uid://q4haiqp2w3f2" path="res://assets/img/characters/queen_portrait.png" id="6_mdg45"]
 [ext_resource type="Texture2D" uid="uid://kfsb8a7hmr5w" path="res://assets/img/characters/VS.png" id="8_7ccpp"]
+[ext_resource type="Texture2D" uid="uid://xv2e718yb72v" path="res://assets/img/purple_background.png" id="8_xhcb0"]
+[ext_resource type="Texture2D" uid="uid://blos72568tqx6" path="res://assets/img/perfect.png" id="9_xhsxg"]
 
 [sub_resource type="Animation" id="Animation_y7wly"]
 resource_name = "AnimateVS"
@@ -203,9 +205,154 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(1076, 1806)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ResultBackground:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ResultPlayerPortrait:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ResultPlayerPortrait:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-841, 37)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ResultText:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ResultText:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(654, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_66nwe"]
+resource_name = "AnimateResult"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ResultBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667, 3.26667, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ResultPlayerPortrait:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.766667, 3.26667, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ResultPlayerPortrait:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.766667, 3.26667, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-841, 37), Vector2(-462, 37), Vector2(-306, 37), Vector2(440, 37)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ResultText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.766667, 3.26667, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ResultText:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.766667, 3.26667, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(654, -1), Vector2(39, -1), Vector2(-77, -1), Vector2(-1088, -1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.766667, 0.933333, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"delete_minigame"
+}, {
+"args": [],
+"method": &"camera_up"
+}, {
+"args": [],
+"method": &"progress_game_state"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5i5br"]
 _data = {
+"AnimateResult": SubResource("Animation_66nwe"),
 "AnimateVS": SubResource("Animation_y7wly"),
 "RESET": SubResource("Animation_y5c6w")
 }
@@ -270,6 +417,23 @@ position = Vector2(1518, -7)
 scale = Vector2(0.634861, 0.634861)
 texture = ExtResource("6_mdg45")
 
+[node name="ResultBackground" type="Sprite2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+texture = ExtResource("8_xhcb0")
+
+[node name="ResultPlayerPortrait" type="Sprite2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+position = Vector2(-841, 37)
+texture = ExtResource("5_ubp3a")
+
+[node name="ResultText" type="Sprite2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+position = Vector2(654, -1)
+texture = ExtResource("9_xhsxg")
+
 [node name="CameraStartingPosition" type="Marker2D" parent="."]
 position = Vector2(960, 540)
 
@@ -282,7 +446,6 @@ position = Vector2(1153, 305)
 [node name="Customer" type="Sprite2D" parent="."]
 z_index = -4
 position = Vector2(3618, 854)
-scale = Vector2(0.304237, 0.305976)
 texture = ExtResource("2_xye3x")
 
 [node name="CustomerPath" type="Path2D" parent="."]
@@ -299,4 +462,4 @@ loop = false
 position = Vector2(365, 877)
 
 [node name="FullMinigamePosition" type="Marker2D" parent="."]
-position = Vector2(0, 538)
+position = Vector2(0, 557)

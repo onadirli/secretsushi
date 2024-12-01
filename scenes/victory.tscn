@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://clhsboe58d8ho"]
+
+[ext_resource type="Texture2D" uid="uid://b7478gr5cku3s" path="res://assets/img/win_screen.png" id="1_w3f6x"]
+[ext_resource type="Texture2D" uid="uid://cusuob2vl4sv8" path="res://assets/img/key.png" id="2_a2rxx"]
+
+[node name="Victory" type="Node2D"]
+position = Vector2(963, 544)
+
+[node name="WinScreen" type="Sprite2D" parent="."]
+position = Vector2(-3, -4)
+texture = ExtResource("1_w3f6x")
+
+[node name="Key" type="Sprite2D" parent="."]
+position = Vector2(3, -294)
+texture = ExtResource("2_a2rxx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 206.0
+offset_top = 382.0
+offset_right = 718.0
+offset_bottom = 590.0
+theme_override_font_sizes/font_size = 24
+text = "Game by Kush Patel, Kyle T. Randall, Orkhan Nadirli and Sean Lee. Thanks for playing :)
+"
+autowrap_mode = 2
