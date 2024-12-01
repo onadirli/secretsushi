@@ -6,7 +6,7 @@ var instance
 
 var time = 0
 var coll_layer = 2;
-var difficulty = 3;
+var difficulty = 1;
 var time_remaining = 15
 var timing = true;
 
@@ -19,13 +19,17 @@ func set_difficulty(difficulty):
 func _process(delta: float) -> void:
 	time_remaining -= delta
 	get_parent().get_node("UserInterface").get_node("Time").set_time(time_remaining);
+	
 	if time_remaining < 0 && timing:
 		timing = false
+
 		# Probably set win loss based on fish missing
-		print("GG" + fish_missed)
+		print("GG" + str(fish_missed))
+		
 	var array = [fishScene, yellowfishScene]
+	
 	time += 1
-	if time == (180 - (30 *difficulty)):
+	if time == (180 - (30 * difficulty)):
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		var fishSelect = randi_range(0,1)

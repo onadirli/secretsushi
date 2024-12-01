@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbol5iewx0ftt"]
+
+[ext_resource type="Texture2D" uid="uid://u2n3sod6urgo" path="res://scenes/chopper/assets/slices.png" id="1_xf6w1"]
+[ext_resource type="Script" path="res://scenes/chopper/slice.gd" id="2_xdp4n"]
+
+[node name="Slice" type="Sprite2D"]
+z_index = 5
+scale = Vector2(1.75943, 3.05)
+texture = ExtResource("1_xf6w1")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(17.2224, 19.4572, 160.781, 110.443)
+script = ExtResource("2_xdp4n")
