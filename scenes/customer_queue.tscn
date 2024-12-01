@@ -239,6 +239,10 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 
+[node name="MessagePosition" type="Marker2D" parent="Camera2D"]
+unique_name_in_owner = true
+position = Vector2(-185, -164)
+
 [node name="Vs" type="Sprite2D" parent="Camera2D"]
 modulate = Color(1, 1, 1, 0)
 z_index = 22
