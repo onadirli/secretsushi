@@ -1,9 +1,9 @@
 extends Control
 
 @onready var imgs = [
-	preload("res://assets/img/intro/catman_begins.png"),
+	preload("res://assets/img/intro/cat_without_glasses.png"),
 	preload("res://assets/img/intro/cat_glass_discovery.png"),
-	preload("res://assets/img/intro/catman_begins.png"),
+	preload("res://assets/img/intro/cat_night.png"),
 ]
 @onready var customer_queue = preload("res://scenes/customer_queue.tscn") as PackedScene
 

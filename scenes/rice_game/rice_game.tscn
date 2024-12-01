@@ -15,6 +15,7 @@ offset_left = 465.0
 offset_top = 617.0
 offset_right = 747.0
 offset_bottom = 640.0
+theme_override_font_sizes/font_size = 24
 text = "Try to circle as much rice as you can!"
 
 [node name="Bowl" type="Sprite2D" parent="."]
