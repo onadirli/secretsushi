@@ -1,10 +1,13 @@
 extends Node2D
 
-const blood_splatter_scene = preload("res://scenes/bloodsplatter.tscn")
+const blood_splatter_scene = preload("res://scenes/chop/bloodsplatter.tscn")
 const animated_label_scene = preload("res://scenes/animated_label.tscn")
 
 var are_controls_enabled = true
+
 var misses: int = 0
+var max_misses: int = 5
+
 var score: int = 0
 
 @onready var knife: Area2D = get_node('Knife')
@@ -30,7 +33,7 @@ func _handle_chop():
 	
 	# Create tween
 	var t = create_tween()
-	t.tween_property(paw, 'position', position, 0.3)
+	t.tween_property(paw, 'position', knife.position, 0.3)
 	t.tween_callback(_add_blood)
 	t.tween_property(paw, 'position', paw_initial_position, 0.3)
 	t.tween_callback(enable_input)
@@ -42,7 +45,12 @@ func _process(delta):
 	pass
 
 func set_difficulty(difficulty: int = 2):
+	if difficulty < 1 or difficulty > 3:
+		print('Invalid difficulty setting')
+		difficulty = 2
+	
 	knife.speed = difficulty
+	max_misses -= difficulty
 	
 func _add_blood():
 	var blood_splatter = blood_splatter_scene.instantiate()
@@ -72,3 +80,7 @@ func _on_show_action_label(text):
 
 func _on_knife_miss():
 	misses += 1
+	
+	if misses >= max_misses:
+		enable_input(false)
+		_on_finish()

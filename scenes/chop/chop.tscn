@@ -1,18 +1,18 @@
 [gd_scene load_steps=9 format=3 uid="uid://mauc2fcmcli4"]
 
-[ext_resource type="Script" path="res://scenes/chop.gd" id="1_584xt"]
-[ext_resource type="Texture2D" uid="uid://b3qf6eyc7pbsh" path="res://assets/img/chop/fish.png" id="1_v7a65"]
-[ext_resource type="Script" path="res://scenes/knife.gd" id="2_uswu0"]
-[ext_resource type="PackedScene" uid="uid://bemkpw06pted" path="res://scenes/cut_zone.tscn" id="3_2ecta"]
-[ext_resource type="Texture2D" uid="uid://cqhet1bk16mxp" path="res://scenes/aquarium/assets/arm.png" id="4_3insu"]
-[ext_resource type="Texture2D" uid="uid://6t8a4yw82s6w" path="res://assets/img/chop/knife.png" id="5_v2tuo"]
-[ext_resource type="AudioStream" uid="uid://b7qlbn0g4xpiy" path="res://assets/audio/chop.mp3" id="7_bryrr"]
+[ext_resource type="Script" path="res://scenes/chop/chop.gd" id="1_ao7jh"]
+[ext_resource type="Texture2D" uid="uid://b3qf6eyc7pbsh" path="res://assets/img/chop/fish.png" id="2_ybye8"]
+[ext_resource type="Script" path="res://scenes/chop/knife.gd" id="3_xopgf"]
+[ext_resource type="PackedScene" uid="uid://bemkpw06pted" path="res://scenes/chop/cut_zone.tscn" id="4_03tnc"]
+[ext_resource type="Texture2D" uid="uid://cqhet1bk16mxp" path="res://scenes/chopper/assets/arm.png" id="5_gd6q0"]
+[ext_resource type="Texture2D" uid="uid://6t8a4yw82s6w" path="res://assets/img/chop/knife.png" id="6_woovy"]
+[ext_resource type="AudioStream" uid="uid://b7qlbn0g4xpiy" path="res://assets/audio/chop.mp3" id="7_7hslt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvtpt"]
 size = Vector2(8, 528)
 
 [node name="Chop" type="Node2D"]
-script = ExtResource("1_584xt")
+script = ExtResource("1_ao7jh")
 
 [node name="TopLeft" type="Marker2D" parent="."]
 
@@ -23,13 +23,13 @@ position = Vector2(1133, 662)
 clip_children = 2
 position = Vector2(512, 299)
 scale = Vector2(1.04141, 1.2814)
-texture = ExtResource("1_v7a65")
+texture = ExtResource("2_ybye8")
 region_enabled = true
 region_rect = Rect2(436.023, 1240.23, 977.282, 310.821)
 
 [node name="Knife" type="Area2D" parent="."]
 position = Vector2(32, 299)
-script = ExtResource("2_uswu0")
+script = ExtResource("3_xopgf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knife"]
 shape = SubResource("RectangleShape2D_nvtpt")
@@ -47,19 +47,19 @@ position = Vector2(8, 280)
 [node name="RightMarker" type="Marker2D" parent="."]
 position = Vector2(1056, 296)
 
-[node name="CutZone" parent="." instance=ExtResource("3_2ecta")]
+[node name="CutZone" parent="." instance=ExtResource("4_03tnc")]
 position = Vector2(-264, -104)
 
-[node name="CutZone2" parent="." instance=ExtResource("3_2ecta")]
+[node name="CutZone2" parent="." instance=ExtResource("4_03tnc")]
 position = Vector2(-136, -104)
 
-[node name="CutZone3" parent="." instance=ExtResource("3_2ecta")]
+[node name="CutZone3" parent="." instance=ExtResource("4_03tnc")]
 position = Vector2(-16, -104)
 
-[node name="CutZone4" parent="." instance=ExtResource("3_2ecta")]
+[node name="CutZone4" parent="." instance=ExtResource("4_03tnc")]
 position = Vector2(104, -104)
 
-[node name="CutZone5" parent="." instance=ExtResource("3_2ecta")]
+[node name="CutZone5" parent="." instance=ExtResource("4_03tnc")]
 position = Vector2(225, -104)
 
 [node name="ActionMarker" type="Marker2D" parent="."]
@@ -83,19 +83,19 @@ z_index = 1
 position = Vector2(198.455, 942.455)
 rotation = -1.70519
 scale = Vector2(1, -1)
-texture = ExtResource("4_3insu")
+texture = ExtResource("5_gd6q0")
 region_enabled = true
 region_rect = Rect2(74.2939, 343.967, 1529.01, 274.937)
 
 [node name="Knife" type="Sprite2D" parent="Paw"]
 position = Vector2(110.455, 30.4547)
 rotation = 0.785397
-texture = ExtResource("5_v2tuo")
+texture = ExtResource("6_woovy")
 region_enabled = true
 region_rect = Rect2(922.455, 649.49, 543.043, 584.815)
 
 [node name="ChopSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_bryrr")
+stream = ExtResource("7_7hslt")
 
 [connection signal="area_entered" from="Knife" to="Knife" method="_on_area_entered"]
 [connection signal="area_exited" from="Knife" to="Knife" method="_on_area_exited"]
