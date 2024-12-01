@@ -10,6 +10,8 @@ var difficulty = 3;
 var time_remaining = 15
 var timing = true;
 
+var fish_missed = 0;
+
 func set_difficulty(difficulty):
 	self.difficulty = difficulty
 	
@@ -20,7 +22,7 @@ func _process(delta: float) -> void:
 	if time_remaining < 0 && timing:
 		timing = false
 		# Probably set win loss based on fish missing
-		print("GG")
+		print("GG" + fish_missed)
 	var array = [fishScene, yellowfishScene]
 	time += 1
 	if time == (180 - (30 *difficulty)):
