@@ -23,8 +23,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if self.position.y > initial_y && !lost:
 		lost = true
-		self.queue_free()
 		get_parent().get_node("BottomSpawn").fish_missed += 1
+		self.queue_free()
 		
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:

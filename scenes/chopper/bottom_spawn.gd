@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+signal game_over(fish_missed: int)
+
 var fishScene  = preload("res://scenes/chopper/fish.tscn") 
 var yellowfishScene  = preload("res://scenes/chopper/yellowfish.tscn") 
 var instance
@@ -7,10 +9,11 @@ var instance
 var time = 0
 var coll_layer = 2;
 var difficulty = 1;
-var time_remaining = 15
+var time_remaining = 21
 var timing = true;
 
 var fish_missed = 0;
+var score = 0
 
 func set_difficulty(difficulty):
 	self.difficulty = difficulty
@@ -20,11 +23,11 @@ func _process(delta: float) -> void:
 	time_remaining -= delta
 	get_parent().get_node("UserInterface").get_node("Time").set_time(time_remaining);
 	
-	if time_remaining < 0 && timing:
-		timing = false
-
+	if time_remaining < 0:
 		# Probably set win loss based on fish missing
-		print("GG" + str(fish_missed))
+		game_over.emit(fish_missed)
+		
+		return
 		
 	var array = [fishScene, yellowfishScene]
 	
