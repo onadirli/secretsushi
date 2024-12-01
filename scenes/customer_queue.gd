@@ -6,8 +6,8 @@ const CUSTOMER_END_PROGRESS = 3823
 var minigames = [
 	preload("res://scenes/rice_game/rice_game.tscn"),
 	preload("res://scenes/aquarium/aquarium.tscn"),
-	preload("res://scenes/aquarium/aquarium.tscn"),
-	preload("res://scenes/rice_game/rice_game.tscn"),
+	preload("res://scenes/chop/chop.tscn"),
+	preload("res://scenes/chopper/board.tscn")
 ]
 var curr_customer = null
 

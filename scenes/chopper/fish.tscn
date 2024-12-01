@@ -24,6 +24,7 @@ animations = [{
 }]
 
 [node name="Fish" type="RigidBody2D"]
+z_index = 5
 z_as_relative = false
 collision_layer = 2
 input_pickable = true

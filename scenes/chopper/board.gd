@@ -22,8 +22,13 @@ func set_difficulty(difficulty):
 func _on_score_changed(old_score, new_score):
 	score = new_score
 
+func enable_input(is_enabled: bool = true):
+	if not $BottomSpawn:
+		return
 
 func _on_game_over(fish_missed):
+	enable_input(false)
+	
 	if difficulty == 3:
 		if fish_missed < 1:
 			Signals.minigame_over.emit(GAME_PERFECT)
