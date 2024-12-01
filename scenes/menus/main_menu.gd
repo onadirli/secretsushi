@@ -1,7 +1,6 @@
 extends Control
 
-@onready var main_game = preload("res://scenes/game.tscn") as PackedScene
-@onready var aquarium = preload("res://scenes/aquarium/aquarium.tscn") as PackedScene
+@onready var customer_queue = preload("res://scenes/customer_queue.tscn") as PackedScene
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,7 +10,7 @@ func _ready() -> void:
 
 
 func _play_pressed() -> void:
-	get_tree().change_scene_to_packed(aquarium)
+	get_tree().change_scene_to_packed(customer_queue)
 	
 func _quit_pressed() -> void:
 	get_tree().quit()

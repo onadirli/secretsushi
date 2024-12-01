@@ -66,20 +66,20 @@ position = Vector2(225, -104)
 position = Vector2(424, 96)
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 808.0
-offset_top = 16.0
-offset_right = 1033.0
-offset_bottom = 200.0
+offset_left = 3.0
+offset_top = -208.0
+offset_right = 228.0
+offset_bottom = -24.0
 theme_override_font_sizes/font_size = 80
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TriesLabel" type="Label" parent="."]
-offset_left = 808.0
-offset_top = 448.0
-offset_right = 1033.0
-offset_bottom = 632.0
+offset_left = 736.0
+offset_top = -192.0
+offset_right = 1012.0
+offset_bottom = -8.0
 theme_override_font_sizes/font_size = 80
 text = "Tries: 0"
 horizontal_alignment = 1

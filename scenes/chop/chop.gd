@@ -16,6 +16,7 @@ var max_misses: int = 5
 var min_score_okay = 15
 var min_score_perfect = 20
 
+var difficulty: int = 1
 var score: int = 0
 
 @onready var knife: Area2D = get_node('Knife')
@@ -51,14 +52,17 @@ func _handle_chop():
 func _ready():
 	var tries_remaining = max_misses - misses
 	$TriesLabel.text = 'Tries: %s' % tries_remaining
+	
+	knife.toggle_controls(false)
+	knife.speed = difficulty + 2
+	max_misses -= difficulty
 
 func set_difficulty(difficulty: int = 2):
-	if difficulty < 1 or difficulty > 3:
+	if difficulty < 0 or difficulty > 2:
 		print('Invalid difficulty setting')
-		difficulty = 2
+		return
 	
-	knife.speed = difficulty
-	max_misses -= difficulty
+	self.difficulty = difficulty
 	
 func _add_blood():
 	var blood_splatter = blood_splatter_scene.instantiate()
@@ -67,6 +71,9 @@ func _add_blood():
 	fish.add_child(blood_splatter)
 	
 func enable_input(is_enabled: bool = true):
+	if not knife:
+		return
+	
 	knife.toggle_controls(is_enabled)
 
 func _on_score_changed(old_score, new_score):
