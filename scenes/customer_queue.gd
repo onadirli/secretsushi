@@ -9,9 +9,18 @@ var minigames = [
 	preload("res://scenes/chop/chop.tscn"),
 	preload("res://scenes/chopper/board.tscn")
 ]
+
+var customers: Array[CustomerSprites] = [
+	preload("res://custom_resources/devon.tres"),
+	preload("res://custom_resources/princess_puddles.tres"),
+	preload("res://custom_resources/rahul.tres"),
+	preload("res://custom_resources/skelex.tres"),
+	preload("res://custom_resources/thief.tres"),
+]
+
 const aquarium = preload("res://scenes/aquarium/aquarium.tscn")
 const animated_label = preload("res://scenes/animated_label.tscn")
-var curr_customer = null
+var curr_customer = 0
 
 var game_state: State = State.CustomerWalkingIn
 var minigame = null
@@ -21,9 +30,9 @@ var curr_minigame = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	curr_customer = $Customer
 	Signals.minigame_over.connect(minigame_over)
 	minigame = $RiceGame
+	make_new_customer()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -42,8 +51,8 @@ func _process(delta: float) -> void:
 		if p == CUSTOMER_END_PROGRESS:
 			progress_game_state()
 	
-	curr_customer.position = $CustomerPath/Follower.position
-	#if curr_customer_target_progress == CUSTOMER_CENTER_PROGRESS:
+	$Customer.position = $CustomerPath/Follower.position
+	#if $Customer_target_progress == CUSTOMER_CENTER_PROGRESS:
 
 
 func camera_down():
@@ -53,7 +62,6 @@ func camera_down():
 func camera_up():
 	var t = create_tween()
 	t.tween_property($Camera2D, "position", $CameraStartingPosition.position, 0.5)
-	t.tween_callback(progress_game_state)
 
 	
 func progress_game_state():
@@ -70,6 +78,7 @@ func progress_game_state():
 				curr_minigame = 0
 				new_day()
 				minigames.shuffle()
+				customers.shuffle()
 
 			
 			$CustomerPath/Follower.progress = 0
@@ -98,8 +107,9 @@ func new_day():
 	$Camera2D.add_child(l)
 	
 func make_new_customer():
-	#TODO
-	pass
+	curr_customer += 1
+	$Customer.texture = customers[curr_customer].walk
+	$Camera2D/OppPortrait.texture = customers[curr_customer].portrait
 
 func make_new_minigame():
 	var scene = minigames[curr_minigame]
@@ -113,13 +123,38 @@ func make_new_minigame():
 	s.enable_input(false)
 	add_child(s)
 	minigame = s
-	
+
+func delete_minigame():
+	if minigame != null:
+		minigame.queue_free()
 
 func minigame_over(score: int):
 	if game_state != State.CookingMinigame:
 		return
-	if minigame != null:
-		minigame.queue_free()
+		
+	if score == 0:
+		$Camera2D/ResultBackground.texture = preload("res://assets/img/red_background.png")
+		$Camera2D/ResultText.texture = preload("res://assets/img/failure.png")
+	elif score == 1:
+		$Camera2D/ResultBackground.texture = preload("res://assets/img/purple_background.png")
+		$Camera2D/ResultText.texture = preload("res://assets/img/success.png")
+	elif score == 2:
+		$Camera2D/ResultBackground.texture = preload("res://assets/img/green_background.png")
+		$Camera2D/ResultText.texture = preload("res://assets/img/perfect.png")
+	
+	$AnimationPlayer.play("AnimateResult")
 	progress_game_state()
-	camera_up()
+	
+	if score == 0:
+		await get_tree().create_timer(4.0).timeout
+		
+		var loss = load("res://scenes/loss.tscn")
+		get_tree().change_scene_to_packed(loss)
+	elif day == 2 && curr_minigame == 3:
+		await get_tree().create_timer(4.0).timeout
+		
+		var victory = load("res://scenes/victory.tscn")
+		get_tree().change_scene_to_packed(victory)
+
+	
 	
