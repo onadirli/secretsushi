@@ -10,7 +10,6 @@ func _ready() -> void:
 	%QuitButton.pressed.connect(_quit_pressed)
 
 
-
 func _play_pressed() -> void:
 	get_tree().change_scene_to_packed(aquarium)
 	

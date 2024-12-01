@@ -75,6 +75,16 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TriesLabel" type="Label" parent="."]
+offset_left = 808.0
+offset_top = 448.0
+offset_right = 1033.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 80
+text = "Tries: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Paw" type="Node2D" parent="."]
 position = Vector2(1864, 256)
 
@@ -99,6 +109,7 @@ stream = ExtResource("7_7hslt")
 
 [connection signal="area_entered" from="Knife" to="Knife" method="_on_area_entered"]
 [connection signal="area_exited" from="Knife" to="Knife" method="_on_area_exited"]
+[connection signal="hit" from="Knife" to="." method="_on_knife_hit"]
 [connection signal="miss" from="Knife" to="." method="_on_knife_miss"]
 [connection signal="score_changed" from="Knife" to="." method="_on_score_changed"]
 [connection signal="show_action_label" from="Knife" to="." method="_on_show_action_label"]
