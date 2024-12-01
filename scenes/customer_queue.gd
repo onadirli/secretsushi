@@ -4,13 +4,10 @@ enum State {CustomerWalkingIn, CustomerOrdering, CookingMinigame, CookingResult,
 const CUSTOMER_CENTER_PROGRESS = 1160
 const CUSTOMER_END_PROGRESS = 3823
 var minigames = [
-	#preload("res://scenes/rice_game/rice_game.tscn"),
+	preload("res://scenes/rice_game/rice_game.tscn"),
 	preload("res://scenes/aquarium/aquarium.tscn"),
-	preload("res://scenes/aquarium/aquarium.tscn"),
-	preload("res://scenes/aquarium/aquarium.tscn"),
-	preload("res://scenes/aquarium/aquarium.tscn"),
-	#preload("res://scenes/chop/chop.tscn"),
-	#preload("res://scenes/chopper/board.tscn")
+	preload("res://scenes/chop/chop.tscn"),
+	preload("res://scenes/chopper/board.tscn")
 ]
 const aquarium = preload("res://scenes/aquarium/aquarium.tscn")
 const animated_label = preload("res://scenes/animated_label.tscn")
