@@ -9,10 +9,10 @@ const animated_label_scene = preload("res://scenes/animated_label.tscn")
 
 var are_controls_enabled = true
 
-var misses: int = 0
+var tries: int = 0
 var hits: int = 0
 
-var max_misses: int = 5
+var max_tries: int = 8
 var min_score_okay = 15
 var min_score_perfect = 20
 
@@ -50,12 +50,12 @@ func _handle_chop():
 	$ChopSound.play()
 
 func _ready():
-	var tries_remaining = max_misses - misses
+	var tries_remaining = max_tries - tries
 	$TriesLabel.text = 'Tries: %s' % tries_remaining
 	
 	knife.toggle_controls(false)
 	knife.speed = difficulty + 2
-	max_misses -= difficulty
+	max_tries -= difficulty
 
 func set_difficulty(difficulty: int = 2):
 	if difficulty < 0 or difficulty > 2:
@@ -89,8 +89,6 @@ func _on_show_action_label(text):
 	add_child(action_label)
 
 func _on_finish():
-	enable_input(false)
-	
 	if score > min_score_perfect:
 		Signals.minigame_over.emit(GAME_PERFECT)
 	elif score > min_score_okay:
@@ -99,17 +97,18 @@ func _on_finish():
 		Signals.minigame_over.emit(GAME_FAIL)
 
 func _on_knife_miss():
-	misses += 1
+	tries += 1
 	
-	var tries_remaining = max(max_misses - misses, 0)
+	var tries_remaining = max(max_tries - tries, 0)
 	$TriesLabel.text = 'Tries: %s' % tries_remaining
 	
-	if misses >= max_misses:
+	if tries >= max_tries:
 		_on_finish()
 
 
 func _on_knife_hit():
 	hits += 1
+	tries += 1
 	
-	if hits == 5:
+	if hits == 5 || tries >= max_tries:
 		_on_finish()
