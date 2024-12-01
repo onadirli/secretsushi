@@ -1,4 +1,4 @@
 extends Label
 
 func set_time(time):
-	text = "Time Remaining: %s" % str(time).split('.')[0]
+	text = "Time Remaining: %s" % str(max(time, 0)).split('.')[0]

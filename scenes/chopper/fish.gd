@@ -1,6 +1,8 @@
 extends RigidBody2D
 
 var fishbit  = preload("res://scenes/chopper/fish_bit.tscn") 
+var slice = preload("res://scenes/chopper/slice.tscn")
+
 @export var fishbit1_texture: String
 @export var fishbit2_texture: String
 
@@ -10,11 +12,12 @@ var difficulty = 1;
 var curr_clicks = 0;
 var initial_y: int;
 var lost = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	clicks_to_kill *= randi_range(3,difficulty + 4)
+	clicks_to_kill *= 1
 	initial_y = self.position.y
 
 func _process(delta: float) -> void:
@@ -28,6 +31,12 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		curr_clicks += 1
 		$FishAnimation.play("damage")
 		if curr_clicks == clicks_to_kill:
+			var slice_node = slice.instantiate()
+			slice_node.position = position
+			get_parent().add_child(slice_node)
+			
+			
+			
 			get_parent().get_node("UserInterface").get_node("Score")._on_fish_cut();
 			self.queue_free()
 			var fishbit1 = fishbit.instantiate()
