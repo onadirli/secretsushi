@@ -11,6 +11,9 @@ var difficulty = 1;
 func set_difficulty(diff):
 	difficulty = diff
 
+func enable_input(enable):
+	$Cat.get_node("Blackout/Hand").enable_input(enable)
+
 # Hardcoded everything, sorry
 func _ready() -> void:
 	var array = [fishScene, pufferScene, fishScene, pufferScene]

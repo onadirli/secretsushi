@@ -5,8 +5,8 @@ const CUSTOMER_CENTER_PROGRESS = 1160
 const CUSTOMER_END_PROGRESS = 3823
 var minigames = [
 	preload("res://scenes/rice_game/rice_game.tscn"),
-	preload("res://scenes/rice_game/rice_game.tscn"),
-	preload("res://scenes/rice_game/rice_game.tscn"),
+	preload("res://scenes/aquarium/aquarium.tscn"),
+	preload("res://scenes/aquarium/aquarium.tscn"),
 	preload("res://scenes/rice_game/rice_game.tscn"),
 ]
 var curr_customer = null
@@ -47,7 +47,6 @@ func _process(delta: float) -> void:
 func camera_down():
 	var t = create_tween()
 	t.tween_property($Camera2D, "position", $CameraCounterPosition.position, 0.5)
-	t.tween_callback(progress_game_state)
 	
 func camera_up():
 	var t = create_tween()
@@ -68,14 +67,14 @@ func progress_game_state():
 				day += 1
 				curr_minigame = 0
 				new_day()
+				minigames.shuffle()
+
 			
-			minigames.shuffle()
 			$CustomerPath/Follower.progress = 0
 			make_new_customer()
 			pass
 		State.CustomerOrdering:
-			make_new_minigame()
-			camera_down()
+			$AnimationPlayer.play("AnimateVS")
 			pass
 		State.CookingMinigame:
 			minigame.enable_input(true)

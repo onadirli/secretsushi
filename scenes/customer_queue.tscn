@@ -1,9 +1,214 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqv4imk21oxy6"]
+[gd_scene load_steps=13 format=3 uid="uid://c7ydnsdxhos6f"]
 
 [ext_resource type="Script" path="res://scenes/customer_queue.gd" id="1_h8bkd"]
 [ext_resource type="Texture2D" uid="uid://b0tthd1a43rxi" path="res://assets/img/placeholders/customer.png" id="2_xye3x"]
 [ext_resource type="Texture2D" uid="uid://1nu6s43ub4qv" path="res://assets/img/placeholders/counter_bigger.png" id="3_v66qs"]
+[ext_resource type="Texture2D" uid="uid://wkb6dhylxba" path="res://assets/img/vs_background.png" id="4_pmvcp"]
 [ext_resource type="Texture2D" uid="uid://clsl1hm0oi0ou" path="res://assets/img/placeholders/restaurant_background.png" id="4_qfnky"]
+[ext_resource type="Texture2D" uid="uid://dopodsystbl7j" path="res://assets/img/characters/player_portrait.png" id="5_ubp3a"]
+[ext_resource type="Texture2D" uid="uid://q4haiqp2w3f2" path="res://assets/img/characters/queen_portrait.png" id="6_mdg45"]
+[ext_resource type="Texture2D" uid="uid://kfsb8a7hmr5w" path="res://assets/img/characters/VS.png" id="8_7ccpp"]
+
+[sub_resource type="Animation" id="Animation_y7wly"]
+resource_name = "AnimateVS"
+length = 4.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VsBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.866667, 3.23333, 4.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerPortrait:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.866667, 3.23333, 4.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1538, 37), Vector2(-829, 37), Vector2(-500, 38), Vector2(1182, 38)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OppPortrait:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.866667, 3.23333, 4.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1400, -7), Vector2(830, -7), Vector2(450, -7), Vector2(-1255, -7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerPortrait:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.866667, 3.23333, 4.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OppPortrait:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.866667, 3.23333, 4.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Vs:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.866667, 3.23333, 4.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Vs:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.866667, 3.23333, 4.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1076, 1806), Vector2(1202, 1000), Vector2(1181, 700), Vector2(1145, 1595)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.866667, 0.9, 4.06667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"camera_down"
+}, {
+"args": [],
+"method": &"make_new_minigame"
+}, {
+"args": [],
+"method": &"progress_game_state"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_y5c6w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VsBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerPortrait:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1538, 37)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OppPortrait:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1518, -7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerPortrait:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OppPortrait:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Vs:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Vs:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1076, 1806)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5i5br"]
+_data = {
+"AnimateVS": SubResource("Animation_y7wly"),
+"RESET": SubResource("Animation_y5c6w")
+}
 
 [sub_resource type="Curve2D" id="Curve2D_8yryn"]
 _data = {
@@ -25,10 +230,41 @@ z_index = -3
 position = Vector2(960, 750)
 texture = ExtResource("3_v66qs")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Camera2D")
+libraries = {
+"": SubResource("AnimationLibrary_5i5br")
+}
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
+
+[node name="Vs" type="Sprite2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+position = Vector2(1076, 1806)
+rotation = -0.164061
+scale = Vector2(0.702436, 0.702436)
+texture = ExtResource("8_7ccpp")
+
+[node name="VsBackground" type="Sprite2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+scale = Vector2(-1, 1)
+texture = ExtResource("4_pmvcp")
+
+[node name="PlayerPortrait" type="Sprite2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+position = Vector2(-1538, 37)
+texture = ExtResource("5_ubp3a")
+
+[node name="OppPortrait" type="Sprite2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+position = Vector2(1518, -7)
+scale = Vector2(0.634861, 0.634861)
+texture = ExtResource("6_mdg45")
 
 [node name="CameraStartingPosition" type="Marker2D" parent="."]
 position = Vector2(960, 540)
@@ -59,4 +295,4 @@ loop = false
 position = Vector2(365, 877)
 
 [node name="FullMinigamePosition" type="Marker2D" parent="."]
-position = Vector2(0, 521)
+position = Vector2(0, 538)

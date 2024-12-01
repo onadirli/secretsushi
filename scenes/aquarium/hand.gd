@@ -76,10 +76,13 @@ func _process(delta: float) -> void:
 		print("GAME END")
 		if fish_count == 3:
 			print ("Perfect")
+			Signals.minigame_over.emit(2)
 		if fish_count == 2:
 			print ("Win")
+			Signals.minigame_over.emit(1)
 		if fish_count <= 1:
 			print ("Lose")
+			Signals.minigame_over.emit(0)
 	if timing:
 		get_parent().get_parent().get_parent().get_node("UserInterface").get_node("Time").set_time(time_seconds);
 		time_seconds -= delta
