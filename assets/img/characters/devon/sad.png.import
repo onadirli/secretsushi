@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc2aqniaq10j2"
-path="res://.godot/imported/dad_portrait.png-c41a5823fd4909a741a6661809291ba4.ctex"
+uid="uid://bdiv88suyr7pr"
+path="res://.godot/imported/sad.png-7f4bb5eed9d9c2b0492e713551f01ad3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/characters/dad_portrait.png"
-dest_files=["res://.godot/imported/dad_portrait.png-c41a5823fd4909a741a6661809291ba4.ctex"]
+source_file="res://assets/img/characters/devon/sad.png"
+dest_files=["res://.godot/imported/sad.png-7f4bb5eed9d9c2b0492e713551f01ad3.ctex"]
 
 [params]
 

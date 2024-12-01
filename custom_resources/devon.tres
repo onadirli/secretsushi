@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CustomerSprites" load_steps=6 format=3 uid="uid://dpg08o4omxwqi"]
+
+[ext_resource type="Texture2D" uid="uid://c703hg66583c" path="res://assets/img/characters/devon/neutral.png" id="1_cjjih"]
+[ext_resource type="Script" path="res://global/customer_resource.gd" id="1_tfcy0"]
+[ext_resource type="Texture2D" uid="uid://cc2aqniaq10j2" path="res://assets/img/characters/devon/portrait.png" id="2_ejqsn"]
+[ext_resource type="Texture2D" uid="uid://bdiv88suyr7pr" path="res://assets/img/characters/devon/sad.png" id="3_gevgt"]
+[ext_resource type="Texture2D" uid="uid://c4x7aifh2eulb" path="res://assets/img/characters/devon/walk.png" id="5_7qyda"]
+
+[resource]
+script = ExtResource("1_tfcy0")
+walk = ExtResource("5_7qyda")
+neutral = ExtResource("1_cjjih")
+sad = ExtResource("3_gevgt")
+portrait = ExtResource("2_ejqsn")
