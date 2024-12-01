@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxq8x5pv3vbfk"]
+
+[ext_resource type="AudioStream" uid="uid://b6cpgyyxd72sy" path="res://assets/audio/jazz_loop.mp3" id="1_ehx4l"]
+
+[node name="BackgroundAudio" type="AudioStreamPlayer"]
+stream = ExtResource("1_ehx4l")
+autoplay = true
+parameters/looping = true
