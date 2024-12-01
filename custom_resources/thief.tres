@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="CustomerSprites" load_steps=2 format=3 uid="uid://banhwumh5w64m"]
+
+[ext_resource type="Script" path="res://global/customer_resource.gd" id="1_7qeol"]
+
+[resource]
+script = ExtResource("1_7qeol")
